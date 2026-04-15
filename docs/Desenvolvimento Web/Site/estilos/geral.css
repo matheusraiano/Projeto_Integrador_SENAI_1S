@@ -2,6 +2,16 @@
 /**/
 /*GERAL*/
 /**/
+:root {
+    --verde: green;
+    --amarelo: yellow;
+    --vermelho: red;
+    --verdeClaro: rgb(62, 209, 62);
+    --bordaCinza: rgb(68, 68, 68);
+    --linhaHr: #333;
+    --textosP: rgb(146, 141, 135);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -15,28 +25,34 @@ body {
 }
 
 strong {
-    color: rgb(62, 209, 62);
+    color: var(--verdeClaro);
 }
 
 span.verde {
-    color: green;
+    color: var(--verde);
 }
 
 span.amarelo {
-    color: yellow;
+    color: var(--amarelo);
 }
 
 span.vermelho {
-    color: red;
+    color: var(--vermelho);
 }
 /**/
 /*HEADER*/
 /**/
 /*Header*/
 header {
+    background-color: rgba(0, 0, 0, 0.438);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+div.header {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.438);
 }
 /*Logo*/
 section.logo {
@@ -56,15 +72,15 @@ div.bandeira {
 }
 
 div.g {
-    background: green;
+    background: var(--verde);
 }
 
 div.y {
-    background: yellow;
+    background: var(--amarelo);
 }
 
 div.r {
-    background: red;
+    background: var(--vermelho);
 }
 
 section.logo h2 {
@@ -88,7 +104,7 @@ nav ul {
 
 nav li a {
     text-decoration: none;
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
     transition: all .3s ease;
     position: relative;
 }
@@ -100,7 +116,7 @@ nav li a::after {
     height: 1px;
     bottom: -5px;
     left: 0;
-    background-color: rgb(62, 209, 62);;
+    background-color: var(--verdeClaro);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -110,11 +126,11 @@ nav li a:hover::after {
 }
 
 nav li a:hover {
-    color: rgb(62, 209, 62);
+    color: var(--verdeClaro);
 }
 
 nav li a.ativo {
-    color: rgb(62, 209, 62);;
+    color: var(--verdeClaro);
 }
 /*Conta*/
 section.conta {
@@ -131,7 +147,7 @@ div.entrar {
 
 div.entrar a {
     background-color: black;
-    border: 1px solid rgb(68, 68, 68);
+    border: 1px solid var(--bordaCinza);
     padding: 8px 18px;
     border-radius: 6px;
     transition: all .3s ease;
@@ -144,8 +160,8 @@ div.entrar a {
 div.entrar a:hover {
     cursor: pointer;
     transform: translateY(-3px);
-    color: rgb(62, 209, 62);
-    border: 1px solid rgb(62, 209, 62);
+    color: var(--verdeClaro);
+    border: 1px solid var(--verdeClaro);
 }
 
 div.criar {
@@ -154,7 +170,7 @@ div.criar {
 }
 
 div.criar a {
-    background-color: rgb(62, 209, 62);
+    background-color: var(--verdeClaro);
     border: none;
     color: #000;
     padding: 8px 20px;
@@ -173,7 +189,8 @@ div.criar a:hover {
 /*Linha*/
 hr.fimHeader {
     border: 0;
-    border-top: 0.5px solid #333;
+    border-top: 0.5px solid var(--linhaHr);
+    margin-bottom: 150px;
 }
 /**/
 /*FOOTER*/
@@ -181,7 +198,8 @@ hr.fimHeader {
 /*Linha*/
 hr.comecoFooter {
     border: 0;
-    border-top: 0.5px solid #333;
+    border-top: 0.5px solid var(--linhaHr);
+    margin-top: 100px;
 }
 /*Footer*/
 footer {
@@ -197,6 +215,6 @@ section.nomeado {
 section.direitos {
     margin-right: 35px;
     font-size: smaller;
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
     text-align: end;
 }

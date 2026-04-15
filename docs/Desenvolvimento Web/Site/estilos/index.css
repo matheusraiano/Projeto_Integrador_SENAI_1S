@@ -1,5 +1,18 @@
 @charset "UTF-8";
 /**/
+/*GERAL*/
+/**/
+:root {
+    --verde: green;
+    --amarelo: yellow;
+    --vermelho: red;
+    --verdeClaro: rgb(62, 209, 62);
+    --bordaCinza: rgb(68, 68, 68);
+    --linhaHr: #333;
+    --textosP: rgb(146, 141, 135);
+    --boxShadowVerdeClaro: rgba(8, 255, 20, 0.418);
+}
+/**/
 /*MAIN*/
 /**/
 /*Intro*/
@@ -14,12 +27,30 @@ div.textos {
     align-items: start;
 }
 
+div.textos p.badge {
+    display: inline-flex;
+    align-items: center;
+    color: var(--verdeClaro);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    gap: 8px;
+    background: rgba(0, 201, 74, 0.1);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 201, 74, 0.3);
+    border-image: initial;
+    border-radius: 100px;
+    padding: 5px 14px;
+}
+
 div.textos h1 {
     font-size: 3.5em;
 }
 
 div.textos p {
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
     font-size: 1rem;
     line-height: 1.7;
 }
@@ -39,13 +70,13 @@ div.cartao {
     border: 1px solid rgba(255, 217, 0, 0.295);
     transition: all 0.3s ease;
     transform: rotate(-6deg);
-    box-shadow: 0px 0px 70px 2px rgba(255, 239, 8, 0.418)
+    box-shadow: 0px 0px 70px 2px rgba(255, 239, 8, 0.418);
 }
 
 div.cartao:hover {
     transform: rotate(10deg);
     cursor: pointer;
-    box-shadow: 0px 0px 70px 2px rgba(8, 255, 20, 0.418);
+    box-shadow: 0px 0px 70px 2px var(--boxShadowVerdeClaro);
     border: 1px solid rgba(94, 255, 0, 0.295);
 }
 
@@ -65,18 +96,86 @@ div.esquerdo div {
 
 div.esquerdo p.numeros {
     margin-left: 25px;
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
 }
 
 div.esquerdo p.nome {
     margin-left: 25px;
     margin-bottom: 35px;
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
 }
 
 div.direito p {
     margin-right: 25px;
     margin-top: 25px;
     font-size: smaller;
-    color: rgb(146, 141, 135);
+    color: var(--textosP);
+}
+/*Funcionalidades*/
+section.funcionalidades {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 250px;
+}
+
+div.funcText h5 {
+    color: var(--verdeClaro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+div.funcText h2 {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+div.funcText p {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+div.funcBlocos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 1000px;
+}
+
+div.funcCaixa {
+    background-color: rgb(27, 27, 27);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid var(--bordaCinza);
+    width: 180px;
+    height: 200px;
+    transition: all 0.3s ease;
+}
+
+div.funcCaixa:hover {
+    border: 1px solid var(--verdeClaro);
+    box-shadow: 0px 0px 15px 1px var(--boxShadowVerdeClaro);
+    transform: translateY(-10px);
+}
+
+div.funcCaixa span {
+    background-color: rgba(0, 128, 0, 0.158);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+div.funcCaixa h5 {
+    font-size: 0.95rem;
+}
+
+div.funcCaixa p {
+    color: var(--textosP);
+    font-size: 0.9rem;
+    line-height: 1.3;
 }
