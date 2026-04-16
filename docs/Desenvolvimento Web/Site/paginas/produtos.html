@@ -8,6 +8,45 @@
         <link rel="shortcut icon" href="../midias/LogoSo2SemFundo.png" type="image/x-icon">
     </head>
     <body>
+        <!-- Overlay + Drawers -->
+        <div class="overlay" id="overlay" onclick="fecharPainel()"></div>
+
+        <!-- Painel: Entrar -->
+        <div class="drawer" id="drawerEntrar">
+            <button class="drawer-close" onclick="fecharPainel()">✕</button>
+            <h2>Entrar na sua conta</h2>
+            <p>Bem-vindo de volta!</p>
+            <div class="drawer-campo">
+                <label>E-mail ou CPF</label>
+                <input type="text" placeholder="Digite seu e-mail ou CPF" />
+            </div>
+            <div class="drawer-campo">
+                <label>Senha</label>
+                <input type="password" placeholder="Digite sua senha" />
+            </div>
+            <button class="drawer-btn-primary">Entrar</button>
+            <a href="#" class="drawer-link">Esqueci minha senha</a>
+        </div>
+
+        <!-- Painel: Abrir Conta -->
+        <div class="drawer" id="drawerConta">
+            <button class="drawer-close" onclick="fecharPainel()">✕</button>
+            <h2>Abrir sua conta</h2>
+            <p>Rápido, gratuito e sem burocracia.</p>
+            <div class="drawer-campo">
+                <label>Nome completo</label>
+                <input type="text" placeholder="Seu nome completo" />
+            </div>
+            <div class="drawer-campo">
+                <label>E-mail</label>
+                <input type="email" placeholder="seu@email.com" />
+            </div>
+            <div class="drawer-campo">
+                <label>CPF</label>
+                <input type="text" placeholder="000.000.000-00" />
+            </div>
+            <button class="drawer-btn-primary">Criar conta grátis</button>
+        </div>
         <header>
             <div class="header">
                 <section class="logo">
@@ -64,5 +103,6 @@
                 <p>CNPJ: 00.000.000/0001-00 • Banco autorizado pelo Banco Central</p>
             </section>
         </footer>
+        <script src="../scripts/script.js"></script>
     </body>
 </html>
