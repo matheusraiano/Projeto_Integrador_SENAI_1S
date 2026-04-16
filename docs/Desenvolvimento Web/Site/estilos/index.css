@@ -1,17 +1,4 @@
-@charset "UTF-8";
-/**/
-/*GERAL*/
-/**/
-:root {
-    --verde: green;
-    --amarelo: yellow;
-    --vermelho: red;
-    --verdeClaro: rgb(62, 209, 62);
-    --bordaCinza: rgb(68, 68, 68);
-    --linhaHr: #333;
-    --textosP: rgb(146, 141, 135);
-    --boxShadowVerdeClaro: rgba(8, 255, 20, 0.418);
-}
+@import url(geral.css);
 /**/
 /*MAIN*/
 /**/
@@ -75,7 +62,7 @@ div.cartao {
 
 div.cartao:hover {
     transform: rotate(10deg);
-    cursor: pointer;
+    cursor: grab;
     box-shadow: 0px 0px 70px 2px var(--boxShadowVerdeClaro);
     border: 1px solid rgba(94, 255, 0, 0.295);
 }

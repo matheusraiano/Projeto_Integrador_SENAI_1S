@@ -10,6 +10,11 @@
     --bordaCinza: rgb(68, 68, 68);
     --linhaHr: #333;
     --textosP: rgb(146, 141, 135);
+    --boxShadowVerdeClaro: rgba(8, 255, 20, 0.418);
+    --fundoPreto: rgb(27, 27, 27);
+    --verdeTransparente: rgba(0, 128, 0, 0.158);
+    --amareloTransparente: rgba(128, 119, 0, 0.158);
+    --vermelhoTransparente: rgba(128, 0, 0, 0.158);
 }
 
 html {
