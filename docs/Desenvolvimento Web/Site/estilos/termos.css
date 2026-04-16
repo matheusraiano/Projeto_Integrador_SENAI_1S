@@ -1,0 +1,66 @@
+@import url(geral.css);
+/**/
+/*MAIN*/
+/**/
+/*Conteudo*/
+section.conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 800px;
+    margin: auto;
+}
+
+div.indice {
+    background-color: var(--fundoPreto);
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    width: 100%;
+    line-height: 1.7;
+}
+
+div.indice h4 {
+    color: var(--verdeClaro);
+}
+
+div.indice ol {
+    color: var(--textosP);
+}
+
+div.caixaProt {
+    width: 100%;
+}
+
+span.num {
+    background-color: var(--boxShadowVerde);
+    color: var(--verdeClaro);
+    border-radius: 5px;
+    padding: 7px;
+}
+
+div.caixaTerm p {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+div.caixaTerm ul {
+    color: var(--verdeClaro);
+    line-height: 1.5;
+    width: 100%;
+}
+
+span.ulIden {
+    color: white;
+}
+
+span.ulCont {
+    color: var(--textosP);
+}
+
+span.ulContVerde {
+    color: var(--verdeClaro);
+}
