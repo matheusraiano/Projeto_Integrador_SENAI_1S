@@ -35,16 +35,16 @@ strong {
     color: var(--verdeClaro);
 }
 
-span.verde {
-    color: var(--verde);
+span.cor1 {
+    color: var(--cor1);
 }
 
-span.amarelo {
-    color: var(--amarelo);
+span.cor2 {
+    color: var(--cor2);
 }
 
-span.vermelho {
-    color: var(--vermelho);
+span.cor3 {
+    color: var(--cor3);
 }
 /**/
 /*HEADER*/
@@ -195,7 +195,7 @@ div.criar a:hover {
 }
 
 /* Overlay com desfoque */
-.overlay {
+div.overlay {
     display: none;
     position: fixed;
     inset: 0;
@@ -207,13 +207,13 @@ div.criar a:hover {
     transition: opacity 0.3s ease;
 }
 
-.overlay.ativo {
+div.overlay.ativo {
     display: block;
     opacity: 1;
 }
 
 /* Drawer lateral */
-.drawer {
+div.drawer {
     position: fixed;
     top: 0;
     right: -100%;
@@ -230,24 +230,24 @@ div.criar a:hover {
     overflow-y: auto;
 }
 
-.drawer.aberto {
+div.drawer.aberto {
     right: 0;
 }
 
-.drawer h2 {
+div.drawer h2 {
     color: #fff;
     font-size: 22px;
     font-weight: 700;
     margin: 0;
 }
 
-.drawer p {
+div.drawer p {
     color: #888;
     font-size: 14px;
     margin: -10px 0 0;
 }
 
-.drawer-close {
+button.drawer-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -265,24 +265,24 @@ div.criar a:hover {
     transition: all 0.2s ease;
 }
 
-.drawer-close:hover {
+button.drawer-close:hover {
     color: #fff;
     border-color: #555;
 }
 
-.drawer-campo {
+div.drawer-campo {
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
 
-.drawer-campo label {
+div.drawer-campo label {
     color: #aaa;
     font-size: 13px;
     font-weight: 500;
 }
 
-.drawer-campo input {
+div.drawer-campo input {
     background: #1a1a1a;
     border: 1px solid #2a2a2a;
     border-radius: 8px;
@@ -293,11 +293,11 @@ div.criar a:hover {
     transition: border-color 0.2s ease;
 }
 
-.drawer-campo input:focus {
+div.drawer-campo input:focus {
     border-color: var(--verdeClaro);
 }
 
-.drawer-btn-primary {
+button.drawer-btn-primary {
     background: var(--verdeClaro);
     border: none;
     color: #000;
@@ -306,15 +306,16 @@ div.criar a:hover {
     font-weight: 700;
     font-size: 15px;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.3s ease;
     margin-top: 6px;
 }
 
-.drawer-btn-primary:hover {
-    opacity: 0.88;
+button.drawer-btn-primary:hover {
+    opacity: 0.68;
+    transform: translateY(-5px);
 }
 
-.drawer-link {
+a.drawer-link {
     color: #666;
     font-size: 13px;
     text-align: center;
@@ -322,7 +323,7 @@ div.criar a:hover {
     transition: color 0.2s;
 }
 
-.drawer-link:hover {
+a.drawer-link:hover {
     color: var(--verdeClaro);
 }
 /*Linha*/
@@ -353,6 +354,7 @@ div.g2 {
     background: var(--cor1);
     padding: 0 25px 0 25px;
     border-radius: 7px;
+    font-size: 0.1rem;
 }
 
 div.y2 {
@@ -365,6 +367,7 @@ div.r2 {
     background: var(--cor3);
     padding: 0 25px 0 25px;
     border-radius: 7px;
+    font-size: 0.1rem;
 }
 
 section.primeiraParte h5 {

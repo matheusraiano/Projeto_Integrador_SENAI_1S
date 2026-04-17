@@ -8,17 +8,14 @@
         <link rel="shortcut icon" href="../midias/LogoSo2SemFundo.png" type="image/x-icon">
     </head>
     <body>
-        <!-- Overlay + Drawers -->
         <div class="overlay" id="overlay" onclick="fecharPainel()"></div>
-
-        <!-- Painel: Entrar -->
         <div class="drawer" id="drawerEntrar">
             <button class="drawer-close" onclick="fecharPainel()">✕</button>
             <h2>Entrar na sua conta</h2>
             <p>Bem-vindo de volta!</p>
             <div class="drawer-campo">
-                <label>E-mail ou CPF</label>
-                <input type="text" placeholder="Digite seu e-mail ou CPF" />
+                <label>CPF</label>
+                <input type="text" placeholder="Digite seu CPF" />
             </div>
             <div class="drawer-campo">
                 <label>Senha</label>
@@ -27,8 +24,6 @@
             <button class="drawer-btn-primary">Entrar</button>
             <a href="#" class="drawer-link">Esqueci minha senha</a>
         </div>
-
-        <!-- Painel: Abrir Conta -->
         <div class="drawer" id="drawerConta">
             <button class="drawer-close" onclick="fecharPainel()">✕</button>
             <h2>Abrir sua conta</h2>
@@ -44,6 +39,10 @@
             <div class="drawer-campo">
                 <label>CPF</label>
                 <input type="text" placeholder="000.000.000-00" />
+            </div>
+            <div class="drawer-campo">
+                <label>Senha</label>
+                <input type="text" placeholder="Digite sua senha" />
             </div>
             <button class="drawer-btn-primary">Criar conta grátis</button>
         </div>
@@ -69,10 +68,10 @@
                 </nav>
                 <section class="conta">
                     <div class="entrar">
-                        <a href="#">Entrar</a>
+                        <a href="#" onclick="abrirPainel('drawerEntrar'); return false;">Entrar</a>
                     </div>
                     <div class="criar">
-                        <a href="#">Abrir Conta</a>
+                        <a href="#" onclick="abrirPainel('drawerConta'); return false;">Abrir Conta</a>
                     </div>
                 </section>
             </div>
