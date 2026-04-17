@@ -2,4 +2,318 @@
 /**/
 /*MAIN*/
 /**/
-/**/
+/*Cartões*/
+section.cartoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section.cartoes h5.tit {
+    color: var(--verdeClaro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+section.cartoes h2 {
+    font-size: 1.7em;
+    font-weight: 800;
+}
+
+section.cartoes p.sub {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+div.tiposCartao {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+div.cartaoCard {
+    background-color: var(--fundoPreto);
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    width: 280px;
+    padding: 30px 25px;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+div.cartaoCard:hover {
+    transform: translateY(-10px);
+    border: 1px solid var(--verdeClaro);
+    box-shadow: 0px 0px 20px 2px var(--boxShadowVerdeClaro);
+}
+
+div.cartaoCard.destaque {
+    border: 1px solid var(--verdeClaro);
+}
+
+span.badgeDestaque {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--verdeClaro);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+div.cartaoMini {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+div.cartaoMini span.nomeCartao {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+}
+
+div.cartaoMini span.chipCartao {
+    font-size: 1.3em;
+}
+
+div.cartaoCard h4 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+div.cartaoCard p.descCartao {
+    color: var(--textosP);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+ul.beneficiosCartao {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+ul.beneficiosCartao li {
+    font-size: 0.85rem;
+    color: var(--textosP);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+ul.beneficiosCartao li::before {
+    content: '✓';
+    color: var(--verdeClaro);
+    font-weight: 800;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+/*Investimentos*/
+section.investimentos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+}
+
+section.investimentos h5.tit {
+    color: var(--verdeClaro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+section.investimentos h2 {
+    font-size: 1.7em;
+    font-weight: 800;
+}
+
+section.investimentos p.sub {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+div.investBlocos {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 1100px;
+}
+
+div.investCaixa {
+    background-color: var(--fundoPreto);
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    width: 220px;
+    padding: 25px 20px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+div.investCaixa:hover {
+    transform: translateY(-10px);
+    border: 1px solid var(--verdeClaro);
+    box-shadow: 0px 0px 15px 1px var(--boxShadowVerdeClaro);
+}
+
+div.investIcone {
+    background-color: var(--verdeTransparente);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+div.investCaixa h5 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+div.investCaixa p {
+    color: var(--textosP);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+span.rendimento {
+    background-color: var(--verdeTransparente);
+    color: var(--verdeClaro);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(62, 209, 62, 0.3);
+}
+
+/*Empréstimos*/
+section.emprestimos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+}
+
+section.emprestimos h5.tit {
+    color: var(--verdeClaro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+section.emprestimos h2 {
+    font-size: 1.7em;
+    font-weight: 800;
+}
+
+section.emprestimos p.sub {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+div.empBlocos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+div.empCaixa {
+    background-color: var(--fundoPreto);
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    width: 260px;
+    padding: 28px 22px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+div.empCaixa:hover {
+    transform: translateY(-10px);
+    border: 1px solid var(--verdeClaro);
+    box-shadow: 0px 0px 15px 1px var(--boxShadowVerdeClaro);
+}
+
+div.empIcone {
+    background-color: var(--verdeTransparente);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+div.empCaixa h5 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+div.empCaixa p {
+    color: var(--textosP);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+div.empTaxa {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-top: 10px;
+    border-top: 1px solid var(--bordaCinza);
+    padding-top: 12px;
+}
+
+span.taxaLabel {
+    color: var(--textosP);
+    font-size: 0.75rem;
+}
+
+span.taxaValor {
+    color: var(--verdeClaro);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+span.taxaSufixo {
+    color: var(--textosP);
+    font-size: 0.75rem;
+}

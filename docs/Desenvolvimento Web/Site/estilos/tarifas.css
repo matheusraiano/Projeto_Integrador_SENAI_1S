@@ -2,4 +2,172 @@
 /**/
 /*MAIN*/
 /**/
-/**/
+/*Banner gratuito*/
+section.bannerGratuito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto 80px auto;
+    max-width: 700px;
+    padding: 50px 40px;
+    background-color: var(--verdeTransparente);
+    border: 1px solid rgba(62, 209, 62, 0.3);
+    border-radius: 24px;
+}
+
+section.bannerGratuito span.icone {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+section.bannerGratuito h2 {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+section.bannerGratuito p {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/*Seção de tarifas*/
+section.tabelaTarifas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section.tabelaTarifas h5.tit {
+    color: var(--verdeClaro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+section.tabelaTarifas h2 {
+    font-size: 1.7em;
+    font-weight: 800;
+}
+
+section.tabelaTarifas p.sub {
+    color: var(--textosP);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+div.tarifasGrupos {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 850px;
+    text-align: left;
+}
+
+div.tarifasGrupo h4.grupoTit {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--verdeClaro);
+    font-weight: 800;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--linhaHr);
+    padding-bottom: 10px;
+}
+
+table.tabelaTarifa {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.tabelaTarifa thead tr th {
+    background-color: var(--fundoPreto);
+    padding: 12px 18px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--textosP);
+    font-weight: 600;
+    text-align: left;
+}
+
+table.tabelaTarifa thead tr th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+table.tabelaTarifa thead tr th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-align: right;
+}
+
+table.tabelaTarifa tbody tr {
+    border-bottom: 1px solid var(--linhaHr);
+    transition: background-color 0.2s ease;
+}
+
+table.tabelaTarifa tbody tr:hover {
+    background-color: var(--fundoPreto);
+}
+
+table.tabelaTarifa tbody tr:last-child {
+    border-bottom: none;
+}
+
+table.tabelaTarifa tbody tr td {
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+table.tabelaTarifa tbody tr td:last-child {
+    text-align: right;
+}
+
+td.gratis {
+    color: var(--verdeClaro) !important;
+    font-weight: 700;
+}
+
+td.destaqueTarifa {
+    color: var(--textosP);
+    font-size: 0.82rem !important;
+}
+
+/*Aviso final*/
+section.avisoTarifas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 80px auto 0 auto;
+    max-width: 650px;
+    padding: 30px 35px;
+    background-color: var(--fundoPreto);
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+}
+
+section.avisoTarifas span.icone {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+section.avisoTarifas h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+section.avisoTarifas p {
+    color: var(--textosP);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
