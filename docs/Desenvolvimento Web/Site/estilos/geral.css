@@ -527,6 +527,9 @@ section.direitos {
 }
 /*TABLET*/
 @media (max-width: 1024px) {
+    section.logo {
+    width: 150px;
+    }
     nav ul {
         gap: 18px;
         padding: 3%;
