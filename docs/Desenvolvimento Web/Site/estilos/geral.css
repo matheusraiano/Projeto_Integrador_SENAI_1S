@@ -546,9 +546,6 @@ section.direitos {
 }
 /*CELULAR*/
 @media (max-width: 768px) {
-    div.drawer {
-        width: 100%;
-    }
     /*Header*/
     div.header {
         align-items: center;
