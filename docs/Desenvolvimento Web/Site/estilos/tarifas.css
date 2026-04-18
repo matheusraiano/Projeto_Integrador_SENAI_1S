@@ -171,3 +171,52 @@ section.avisoTarifas p {
     font-size: 0.85rem;
     line-height: 1.6;
 }
+/*TABLET*/
+@media (max-width: 1024px) {
+    div.tarifasGrupos {
+        width: 90%;
+    }
+
+    section.bannerGratuito {
+        margin: 0 30px 60px 30px;
+    }
+}
+/*CELULAR*/
+@media (max-width: 768px) {
+    section.bannerGratuito {
+        margin: 0 20px 50px 20px;
+        padding: 30px 20px;
+    }
+
+    section.bannerGratuito h2 {
+        font-size: 1.6em;
+    }
+
+    div.tarifasGrupos {
+        width: 90%;
+        padding: 0 20px;
+    }
+
+    table.tabelaTarifa thead tr th,
+    table.tabelaTarifa tbody tr td {
+        padding: 12px 10px;
+        font-size: 0.78rem;
+    }
+
+    table.tabelaTarifa thead tr th:nth-child(2),
+    table.tabelaTarifa tbody tr td:nth-child(2) {
+        display: none;
+    }
+
+    section.avisoTarifas {
+        margin: 50px 20px 0 20px;
+    }
+
+    section.tabelaTarifas h2 {
+        padding: 0 20px;
+    }
+
+    section.tabelaTarifas p.sub {
+        padding: 0 20px;
+    }
+}

@@ -153,3 +153,42 @@ div.contCaixa p {
     color: var(--textosP);
     font-size: 0.8rem;
 }
+/*TABLET*/
+@media (max-width: 1024px) {
+    div.CaixasNoti {
+        width: 90%;
+    }
+
+    div.caixasCont {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+}
+/*CELULAR*/
+@media (max-width: 768px) {
+    div.CaixasNoti {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    div.notiCaixa {
+        width: 90%;
+        height: auto;
+    }
+
+    div.caixasCont {
+        width: 100%;
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    div.contCaixa {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    section.contatoImprensa {
+        margin-top: 80px;
+    }
+}

@@ -317,3 +317,69 @@ span.taxaSufixo {
     color: var(--textosP);
     font-size: 0.75rem;
 }
+/*TABLET*/
+@media (max-width: 1024px) {
+    div.tiposCartao {
+        gap: 20px;
+    }
+
+    div.investBlocos {
+        width: 90%;
+    }
+
+    div.empBlocos {
+        gap: 20px;
+    }
+}
+/*CELULAR*/
+@media (max-width: 768px) {
+    section.cartoes h2,
+    section.investimentos h2,
+    section.emprestimos h2 {
+        font-size: 1.4em;
+        padding: 0 20px;
+    }
+
+    section.cartoes p.sub,
+    section.investimentos p.sub,
+    section.emprestimos p.sub {
+        padding: 0 20px;
+    }
+
+    div.tiposCartao {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    div.cartaoCard {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    div.investBlocos {
+        width: 90%;
+        padding: 0 20px;
+        gap: 15px;
+    }
+
+    div.investCaixa {
+        width: 100%;
+    }
+
+    div.empBlocos {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    div.empCaixa {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    section.investimentos,
+    section.emprestimos {
+        margin-top: 80px;
+    }
+}

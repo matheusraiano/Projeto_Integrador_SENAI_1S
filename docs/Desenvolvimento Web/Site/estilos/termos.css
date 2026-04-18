@@ -64,3 +64,37 @@ span.ulCont {
 span.ulContVerde {
     color: var(--verdeClaro);
 }
+/*TABLET*/
+@media (max-width: 1024px) {
+    section.conteudo {
+        width: 90%;
+    }
+}
+/*CELULAR*/
+@media (max-width: 768px) {
+    section.conteudo {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    div.indice {
+        padding: 5px 15px;
+        box-sizing: border-box;
+    }
+
+    div.caixaProt,
+    div.caixaTerm {
+        box-sizing: border-box;
+    }
+
+    div.caixaProt ul,
+    div.caixaTerm ul {
+        padding-left: 18px;
+    }
+
+    section.primeiraParte h1 {
+        font-size: 1.8em;
+        padding: 0 20px;
+    }
+}
