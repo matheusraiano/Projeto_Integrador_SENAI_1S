@@ -1,0 +1,79 @@
+<!-- Overlay + Drawers -->
+<div class="overlay" id="overlay" onclick="fecharPainel()"></div>
+<div class="drawer" id="drawerEntrar">
+    <button class="drawer-close" onclick="fecharPainel()">✕</button>
+    <h2>Entrar na sua conta</h2>
+    <p>Bem-vindo de volta!</p>
+    <div class="drawer-campo">
+        <label>CPF</label>
+        <input type="text" placeholder="Digite seu CPF" />
+    </div>
+    <div class="drawer-campo">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua senha" />
+    </div>
+    <button class="drawer-btn-primary">Entrar</button>
+    <a href="#" class="drawer-link">Esqueci minha senha</a>
+</div>
+<div class="drawer" id="drawerConta">
+    <button class="drawer-close" onclick="fecharPainel()">✕</button>
+    <h2>Abrir sua conta</h2>
+    <p>Rápido, gratuito e sem burocracia.</p>
+    <div class="drawer-campo">
+        <label>Nome completo</label>
+        <input type="text" placeholder="Seu nome completo" />
+    </div>
+    <div class="drawer-campo">
+        <label>E-mail</label>
+        <input type="email" placeholder="seu@email.com" />
+    </div>
+    <div class="drawer-campo">
+        <label>CPF</label>
+        <input type="text" placeholder="000.000.000-00" />
+    </div>
+    <div class="drawer-campo">
+        <label>Senha</label>
+        <input type="password" placeholder="Digite sua senha" />
+    </div>
+    <button class="drawer-btn-primary">Criar conta grátis</button>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header">
+        <section class="logo">
+            <div class="bandeira">
+                <div class="g">.</div>
+                <div class="y">.</div>
+                <div class="r">.</div>
+            </div>
+            <button class="menu-hamburguer" id="menuHamburguer" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h2><a href="index.html"><strong>SENNA</strong> BANK</a></h2>
+        </section>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="imprensa.html">Imprensa</a></li>
+                <li><a href="privacidade.html">Privacidade</a></li>
+                <li><a href="termos.html">Termos</a></li>
+                <li><a href="tarifas.html">Tarifas</a></li>
+            </ul>
+        </nav>
+        <section class="conta">
+            <div class="entrar">
+                <a href="#" onclick="abrirPainel('drawerEntrar'); return false;">Entrar</a>
+            </div>
+            <div class="criar">
+                <a href="#" onclick="abrirPainel('drawerConta'); return false;">Abrir Conta</a>
+            </div>
+        </section>
+    </div>
+    <div>
+        <hr class="fimHeader">
+    </div>
+</header>
