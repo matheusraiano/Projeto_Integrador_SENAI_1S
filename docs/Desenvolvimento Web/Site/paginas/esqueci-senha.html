@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Senna Bank - Esqueci minha senha</title>
+        <link rel="stylesheet" href="../estilos/esqueci-senha.css">
+        <link rel="shortcut icon" href="../midias/LogoSo2SemFundo.png" type="image/x-icon">
+    </head>
+    <body>
+        <main>
+            <div class="esqueci-container">
+
+                <div class="esqueci-logo">
+                    <a href="index.html">
+                        <strong>SENNA</strong> BANK
+                    </a>
+                </div>
+
+                <!-- Indicador de etapas -->
+                <div class="cadastro-etapas">
+                    <div class="etapa ativa" id="etapa-dot-1">1</div>
+                    <div class="etapa-linha"></div>
+                    <div class="etapa" id="etapa-dot-2">2</div>
+                    <div class="etapa-linha"></div>
+                    <div class="etapa" id="etapa-dot-3">3</div>
+                </div>
+
+                <!-- Etapa 1: CPF -->
+                <div class="esqueci-passo" id="passo1">
+                    <div class="esqueci-icone">🔑</div>
+                    <h1>Esqueci minha senha</h1>
+                    <p>Informe seu CPF cadastrado e enviaremos um código de verificação.</p>
+                    <div class="esqueci-campo">
+                        <label>CPF</label>
+                        <input type="text" id="esqCpf" placeholder="000.000.000-00"
+                               maxlength="14" oninput="mascaraCpf(this)" />
+                        <span class="campo-erro" id="erroEsqCpf"></span>
+                    </div>
+                    <button class="esqueci-btn-primary" onclick="avancarEsqueci(1)">
+                        Enviar código
+                    </button>
+                    <a href="javascript:history.back()" class="esqueci-link">← Voltar</a>
+                </div>
+
+                <!-- Etapa 2: Código -->
+                <div class="esqueci-passo oculto" id="passo2">
+                    <div class="esqueci-icone">📱</div>
+                    <h1>Código de verificação</h1>
+                    <p>Enviamos um código para o celular cadastrado. Digite abaixo.</p>
+                    <div class="codigo-inputs">
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 0)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 1)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 2)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 3)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 4)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 5)" />
+                    </div>
+                    <span class="campo-erro" id="erroEsqCodigo"></span>
+                    <p class="reenviar-codigo">Não recebeu? <a href="#" onclick="reenviarCodigo()">Reenviar código</a></p>
+                    <button class="esqueci-btn-primary" onclick="avancarEsqueci(2)">
+                        Verificar código
+                    </button>
+                    <a href="#" class="esqueci-link" onclick="voltarEsqueci(2)">← Voltar</a>
+                </div>
+
+                <!-- Etapa 3: Nova senha -->
+                <div class="esqueci-passo oculto" id="passo3">
+                    <div class="esqueci-icone">🔒</div>
+                    <h1>Nova senha</h1>
+                    <p>Crie uma senha forte com pelo menos 8 caracteres.</p>
+                    <div class="esqueci-campo">
+                        <label>Nova senha</label>
+                        <div class="input-senha">
+                            <input type="password" id="esqSenha" placeholder="Crie uma senha forte" />
+                            <button type="button" class="toggle-senha" onclick="toggleSenha('esqSenha', this)">👁</button>
+                        </div>
+                        <div class="forca-senha">
+                            <div class="forca-barra" id="forcaBarraEsq"></div>
+                        </div>
+                        <span class="campo-erro" id="erroEsqSenha"></span>
+                    </div>
+                    <div class="esqueci-campo">
+                        <label>Confirmar nova senha</label>
+                        <div class="input-senha">
+                            <input type="password" id="esqSenhaConf" placeholder="Repita a senha" />
+                            <button type="button" class="toggle-senha" onclick="toggleSenha('esqSenhaConf', this)">👁</button>
+                        </div>
+                        <span class="campo-erro" id="erroEsqSenhaConf"></span>
+                    </div>
+                    <button class="esqueci-btn-primary" onclick="finalizarEsqueci()">
+                        Redefinir senha
+                    </button>
+                    <a href="#" class="esqueci-link" onclick="voltarEsqueci(3)">← Voltar</a>
+                </div>
+
+                <!-- Sucesso -->
+                <div class="esqueci-passo oculto" id="passoSucesso">
+                    <div class="esqueci-icone">✅</div>
+                    <h1>Senha redefinida!</h1>
+                    <p>Sua senha foi alterada com sucesso. Agora você já pode entrar na sua conta.</p>
+                    <a href="index.html" class="esqueci-btn-primary" style="text-align:center; text-decoration:none;">
+                        Ir para o início
+                    </a>
+                </div>
+
+            </div>
+        </main>
+        <script src="../scripts/script.js"></script>
+        <script src="../scripts/esqueci-senha.js"></script>
+    </body>
+</html>

@@ -1,0 +1,187 @@
+@import url(geral.css);
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+div.esqueci-container {
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 20px;
+    padding: 50px 45px;
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+div.esqueci-logo {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+div.esqueci-logo a {
+    text-decoration: none;
+    color: white;
+}
+
+div.esqueci-icone {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+div.esqueci-passo h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+}
+
+div.esqueci-passo p {
+    color: var(--textosP);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+}
+
+div.esqueci-passo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div.esqueci-passo.oculto {
+    display: none;
+}
+
+div.esqueci-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+div.esqueci-campo label {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+div.esqueci-campo input {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div.esqueci-campo input:focus {
+    border-color: var(--verdeClaro);
+}
+
+/* Inputs do código */
+div.codigo-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+input.codigo-digito {
+    width: 48px;
+    height: 56px;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+input.codigo-digito:focus {
+    border-color: var(--verdeClaro);
+}
+
+input.codigo-digito.preenchido {
+    border-color: var(--verdeClaro);
+    color: var(--verdeClaro);
+}
+
+p.reenviar-codigo {
+    color: var(--textosP);
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+}
+
+p.reenviar-codigo a {
+    color: var(--verdeClaro);
+    text-decoration: none;
+}
+
+p.reenviar-codigo a:hover {
+    text-decoration: underline;
+}
+
+/* Botões */
+button.esqueci-btn-primary,
+a.esqueci-btn-primary {
+    background: var(--verdeClaro);
+    border: none;
+    color: #000;
+    padding: 13px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button.esqueci-btn-primary:hover,
+a.esqueci-btn-primary:hover {
+    opacity: 0.85;
+}
+
+a.esqueci-link {
+    color: #555;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+a.esqueci-link:hover {
+    color: var(--verdeClaro);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    div.esqueci-container {
+        padding: 35px 24px;
+    }
+
+    input.codigo-digito {
+        width: 40px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+}

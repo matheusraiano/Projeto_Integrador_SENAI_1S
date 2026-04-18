@@ -436,6 +436,198 @@ a.drawer-link {
 a.drawer-link:hover {
     color: var(--verdeClaro);
 }
+
+/* Erros nos campos */
+span.campo-erro {
+    color: #e05252;
+    font-size: 11px;
+    min-height: 14px;
+    display: block;
+    margin-top: -4px;
+}
+
+span.campo-erro-geral {
+    text-align: center;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+/* Input com botão de ver senha */
+div.input-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+div.input-senha input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+button.toggle-senha {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+button.toggle-senha:hover {
+    color: #aaa;
+}
+
+/* Divisor entre botões */
+p.drawer-divisor {
+    color: #444;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+    position: relative;
+}
+
+p.drawer-divisor::before,
+p.drawer-divisor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #2a2a2a;
+}
+
+p.drawer-divisor::before { left: 0; }
+p.drawer-divisor::after  { right: 0; }
+
+/* Botão secundário */
+button.drawer-btn-secondary {
+    background: transparent;
+    border: 1px solid var(--bordaCinza);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.drawer-btn-secondary:hover {
+    border-color: var(--verdeClaro);
+    color: var(--verdeClaro);
+}
+
+/* Indicador de etapas */
+div.cadastro-etapas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 10px;
+}
+
+div.etapa {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #555;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+div.etapa.ativa {
+    background: var(--verdeClaro);
+    border-color: var(--verdeClaro);
+    color: #000;
+}
+
+div.etapa.concluida {
+    background: var(--verdeTransparente);
+    border-color: var(--verdeClaro);
+    color: var(--verdeClaro);
+}
+
+div.etapa-linha {
+    width: 40px;
+    height: 1px;
+    background: #2a2a2a;
+}
+
+/* Navegação entre etapas */
+div.cadastro-navegacao {
+    display: flex;
+    gap: 10px;
+}
+
+div.cadastro-navegacao button:first-child {
+    flex: 1;
+}
+
+div.cadastro-navegacao button:last-child {
+    flex: 2;
+}
+
+/* Força da senha */
+div.forca-senha {
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+div.forca-barra {
+    height: 100%;
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Tela de sucesso */
+div.cadastro-sucesso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 0;
+}
+
+span.sucesso-icone {
+    font-size: 3em;
+}
+
+/* Espaçamento interno do cadastro */
+section.drawer h2 {
+    margin: 0 0 4px 0;
+}
+
+section.drawer h2 + p {
+    margin: 0 0 16px 0;
+}
+
+div.cadastro-etapas {
+    margin-bottom: 20px;
+}
+
+div.cadastro-passo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div.drawer-campo {
+    gap: 5px;
+}
 /*Linha*/
 hr.fimHeader {
     border: 0;
