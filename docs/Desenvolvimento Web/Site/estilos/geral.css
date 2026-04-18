@@ -72,7 +72,7 @@ section.logo {
 div.bandeira {
     display: flex;
     gap: 3px;
-    width: 12%;
+    width: 27px;
     flex-direction: column;
     font-size: 1.7pt;
     margin-left: 15px;
