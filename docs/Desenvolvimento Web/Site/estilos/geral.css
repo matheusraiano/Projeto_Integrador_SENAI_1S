@@ -546,6 +546,9 @@ section.direitos {
 }
 /*CELULAR*/
 @media (max-width: 768px) {
+    div.drawer {
+        width: 100%;
+    }
     /*Header*/
     div.header {
         align-items: center;
@@ -581,30 +584,9 @@ section.direitos {
     hr.fimHeader {
         margin-bottom: 50px;
     }
-    /*Esconde a bandeira, mostra o hamburguer*/
-    div.bandeira {
-        display: none;
-    }
-
-    button.menu-hamburguer {
-        display: flex;
-        margin-left: 0;
-    }
-    /*Esconde a nav normal */
-    nav ul {
-        display: none;
-    }
 
     nav.menu-aberto ul {
         display: flex !important;
-    }
-    /*Esconde os botões de conta*/
-    section.conta {
-        display: none;
-    }
-    /*Mostra o hamburguer*/
-    button.menu-hamburguer {
-        display: flex;
     }
     /*Linha do header*/
     hr.fimHeader {
