@@ -1,3 +1,4 @@
+//Código de Matheus Raiano
 // Código simulado — quando tiver backend Java, vem do servidor
 const CODIGO_SIMULADO = '123456';
 
