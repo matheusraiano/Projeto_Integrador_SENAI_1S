@@ -323,7 +323,7 @@ div.overlay.ativo {
 }
 
 /* Drawer lateral */
-div.drawer {
+section.drawer {
     position: fixed;
     top: 0;
     right: -100%;
@@ -340,18 +340,18 @@ div.drawer {
     overflow-y: auto;
 }
 
-div.drawer.aberto {
+section.drawer.aberto {
     right: 0;
 }
 
-div.drawer h2 {
+section.drawer h2 {
     color: #fff;
     font-size: 22px;
     font-weight: 700;
     margin: 0;
 }
 
-div.drawer p {
+section.drawer p {
     color: #888;
     font-size: 14px;
     margin: -10px 0 0;
