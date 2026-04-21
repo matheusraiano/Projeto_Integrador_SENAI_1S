@@ -15,9 +15,15 @@ public class MascaraUtil {
         campo.getDocument().addDocumentListener(new DocumentListener() {
             boolean editando = false;
 
-            @Override public void insertUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void removeUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void changedUpdate(DocumentEvent e) { }
+            @Override public void insertUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void removeUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void changedUpdate(DocumentEvent e) {
+
+            }
 
             private void formatar() {
                 if (editando) return;
@@ -41,9 +47,15 @@ public class MascaraUtil {
         campo.getDocument().addDocumentListener(new DocumentListener() {
             boolean editando = false;
 
-            @Override public void insertUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void removeUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void changedUpdate(DocumentEvent e) { }
+            @Override public void insertUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void removeUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void changedUpdate(DocumentEvent e) {
+
+            }
 
             private void formatar() {
                 if (editando) return;
@@ -67,9 +79,15 @@ public class MascaraUtil {
         campo.getDocument().addDocumentListener(new DocumentListener() {
             boolean editando = false;
 
-            @Override public void insertUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void removeUpdate(DocumentEvent e)  { formatar(); }
-            @Override public void changedUpdate(DocumentEvent e) { }
+            @Override public void insertUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void removeUpdate(DocumentEvent e) {
+                formatar();
+            }
+            @Override public void changedUpdate(DocumentEvent e) {
+
+            }
 
             private void formatar() {
                 if (editando) return;

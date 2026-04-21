@@ -11,20 +11,19 @@ import java.sql.*;
 
 public class TelaLogin extends JFrame {
 
-    // Paleta de cores igual ao site
-    private static final Color PRETO        = new Color(0, 0, 0);
-    private static final Color FUNDO_CARD   = new Color(17, 17, 17);
-    private static final Color FUNDO_CAMPO  = new Color(26, 26, 26);
-    private static final Color BORDA_CAMPO  = new Color(42, 42, 42);
-    private static final Color VERDE        = new Color(62, 209, 62);
-    private static final Color CINZA_TEXTO  = new Color(136, 136, 136);
-    private static final Color CINZA_LABEL  = new Color(170, 170, 170);
-    private static final Color VERMELHO     = new Color(224, 82, 82);
-    private static final Color BORDA_CINZA  = new Color(68, 68, 68);
+    private static final Color PRETO = new Color(0, 0, 0);
+    private static final Color FUNDO_CARD = new Color(17, 17, 17);
+    private static final Color FUNDO_CAMPO = new Color(26, 26, 26);
+    private static final Color BORDA_CAMPO = new Color(42, 42, 42);
+    private static final Color VERDE = new Color(62, 209, 62);
+    private static final Color CINZA_TEXTO = new Color(136, 136, 136);
+    private static final Color CINZA_LABEL = new Color(170, 170, 170);
+    private static final Color VERMELHO = new Color(224, 82, 82);
+    private static final Color BORDA_CINZA = new Color(68, 68, 68);
 
-    private JTextField    campoCpf;
+    private JTextField campoCpf;
     private JPasswordField campoSenha;
-    private JLabel        lblErro;
+    private JLabel lblErro;
 
     public TelaLogin() {
         configurarJanela();
@@ -72,7 +71,7 @@ public class TelaLogin extends JFrame {
 
         // ── Título ──
         JLabel titulo = criarLabelCentro("Entrar na conta", 15, Font.BOLD, Color.WHITE);
-        JLabel sub    = criarLabelCentro("Bem-vindo de volta!", 12, Font.PLAIN, CINZA_TEXTO);
+        JLabel sub = criarLabelCentro("Bem-Vindo de volta!", 12, Font.PLAIN, CINZA_TEXTO);
 
         // ── Campos ──
         campoCpf = criarCampoTexto();
@@ -102,7 +101,7 @@ public class TelaLogin extends JFrame {
         lblErro.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // ── Botões ──
-        JButton btnEntrar   = criarBotaoPrimario("Entrar");
+        JButton btnEntrar = criarBotaoPrimario("Entrar");
         JButton btnCadastro = criarBotaoSecundario("Não tem conta? Criar conta grátis");
 
         btnEntrar.addActionListener(e -> realizarLogin());
@@ -114,7 +113,7 @@ public class TelaLogin extends JFrame {
         // Permitir Enter para login
         getRootPane().setDefaultButton(btnEntrar);
 
-        // ── Link esqueci senha ──
+        // Link esqueci senha
         JButton btnEsqueci = new JButton("Esqueci minha senha");
         btnEsqueci.setBackground(null);
         btnEsqueci.setForeground(CINZA_TEXTO);
@@ -127,13 +126,13 @@ public class TelaLogin extends JFrame {
                 JOptionPane.showMessageDialog(this, "Funcionalidade disponível em breve.", "Aviso", JOptionPane.INFORMATION_MESSAGE)
         );
 
-        // ── Linha divisória ──
+        // Linha divisória
         JSeparator sep = new JSeparator();
         sep.setForeground(BORDA_CINZA);
         sep.setBackground(BORDA_CINZA);
         sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
 
-        // ── Montagem do card ──
+        // Montagem do card
         card.add(painelLogo);
         card.add(Box.createVerticalStrut(20));
         card.add(titulo);
@@ -163,7 +162,7 @@ public class TelaLogin extends JFrame {
     }
 
     private void realizarLogin() {
-        String cpf   = MascaraUtil.apenasNumeros(campoCpf.getText());
+        String cpf = MascaraUtil.apenasNumeros(campoCpf.getText());
         String senha = new String(campoSenha.getPassword());
         lblErro.setText(" ");
 
@@ -186,7 +185,7 @@ public class TelaLogin extends JFrame {
         }
 
         try {
-            // Busca o hash da senha pelo CPF — nunca comparamos senha em texto puro no SQL
+            // Busca o hash da senha pelo CPF
             String sql = "SELECT cd_usuario, nm_usuario, senha FROM usuario WHERE cd_cpf = ? AND ds_status = 'ativo'";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, cpf);
@@ -194,7 +193,7 @@ public class TelaLogin extends JFrame {
 
             if (rs.next()) {
                 String hashDoBanco = rs.getString("senha");
-                // BCrypt compara a senha digitada com o hash — seguro contra timing attacks
+                // BCrypt compara a senha digitada com o hash
                 if (SenhaUtil.verificar(senha, hashDoBanco)) {
                     String nome = rs.getString("nm_usuario");
                     JOptionPane.showMessageDialog(this,
@@ -208,7 +207,7 @@ public class TelaLogin extends JFrame {
                     campoSenha.requestFocus();
                 }
             } else {
-                // Mesma mensagem para CPF não encontrado e senha errada — segurança
+                // Mesma mensagem para CPF não encontrado e senha errada
                 lblErro.setText("CPF ou senha incorretos.");
                 campoSenha.setText("");
                 campoSenha.requestFocus();
@@ -224,7 +223,7 @@ public class TelaLogin extends JFrame {
         }
     }
 
-    // ── Helpers de estilo ────────────────────────────────
+    // Helpers de estilo
 
     private JPanel criarTraco(Color cor) {
         JPanel traco = new JPanel();

@@ -12,24 +12,24 @@ import java.time.LocalDate;
 
 public class TelaCadastro extends JFrame {
 
-    private static final Color PRETO       = new Color(0, 0, 0);
-    private static final Color FUNDO_CARD  = new Color(17, 17, 17);
+    private static final Color PRETO = new Color(0, 0, 0);
+    private static final Color FUNDO_CARD = new Color(17, 17, 17);
     private static final Color FUNDO_CAMPO = new Color(26, 26, 26);
     private static final Color BORDA_CAMPO = new Color(42, 42, 42);
-    private static final Color VERDE       = new Color(62, 209, 62);
+    private static final Color VERDE = new Color(62, 209, 62);
     private static final Color CINZA_TEXTO = new Color(136, 136, 136);
     private static final Color CINZA_LABEL = new Color(170, 170, 170);
-    private static final Color VERMELHO    = new Color(224, 82, 82);
+    private static final Color VERMELHO = new Color(224, 82, 82);
     private static final Color BORDA_CINZA = new Color(68, 68, 68);
 
-    private JTextField     campoNome;
-    private JTextField     campoCpf;
-    private JTextField     campoEmail;
-    private JTextField     campoCelular;
-    private JTextField     campoNascimento;
+    private JTextField campoNome;
+    private JTextField campoCpf;
+    private JTextField campoEmail;
+    private JTextField campoCelular;
+    private JTextField campoNascimento;
     private JPasswordField campoSenha;
     private JPasswordField campoConfSenha;
-    private JLabel         lblErro;
+    private JLabel lblErro;
 
     // Indicadores de etapa
     private JLabel dot1, dot2, dot3;
@@ -189,10 +189,10 @@ public class TelaCadastro extends JFrame {
         p.setBackground(FUNDO_CARD);
         p.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        campoSenha     = new JPasswordField();
+        campoSenha = new JPasswordField();
         campoConfSenha = new JPasswordField();
 
-        JPanel painelSenha     = criarPainelSenha(campoSenha);
+        JPanel painelSenha = criarPainelSenha(campoSenha);
         JPanel painelConfSenha = criarPainelSenha(campoConfSenha);
 
         // Barra de força da senha
@@ -210,13 +210,12 @@ public class TelaCadastro extends JFrame {
             private void atualizarForca() {
                 String s = new String(campoSenha.getPassword());
                 int forca = 0;
-                if (s.length() >= 8)               forca++;
-                if (s.matches(".*[A-Z].*"))         forca++;
-                if (s.matches(".*[0-9].*"))         forca++;
+                if (s.length() >= 8) forca++;
+                if (s.matches(".*[A-Z].*")) forca++;
+                if (s.matches(".*[0-9].*")) forca++;
                 if (s.matches(".*[^A-Za-z0-9].*")) forca++;
                 barraForca.setValue(forca);
-                Color[] cores = {BORDA_CAMPO, VERMELHO, new Color(224, 148, 82),
-                        new Color(224, 212, 82), VERDE};
+                Color[] cores = {BORDA_CAMPO, VERMELHO, new Color(224, 148, 82), new Color(224, 212, 82), VERDE};
                 barraForca.setForeground(cores[forca]);
             }
         });
@@ -226,9 +225,9 @@ public class TelaCadastro extends JFrame {
         painelNav.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
         painelNav.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton btnVoltar    = criarBotaoSecundario("← Voltar");
+        JButton btnVoltar = criarBotaoSecundario("← Voltar");
         JButton btnCadastrar = criarBotaoPrimario("Criar conta grátis");
-        btnVoltar.addActionListener(e    -> voltarEtapa(3));
+        btnVoltar.addActionListener(e -> voltarEtapa(3));
         btnCadastrar.addActionListener(e -> realizarCadastro());
 
         painelNav.add(btnVoltar);
@@ -248,7 +247,7 @@ public class TelaCadastro extends JFrame {
         return p;
     }
 
-    // ── Lógica de navegação ────────────────────────────────
+    // Lógica de navegação
 
     private void avancarEtapa(int etapaAtual) {
         if (!validarEtapa(etapaAtual)) return;
@@ -300,9 +299,9 @@ public class TelaCadastro extends JFrame {
                 return false;
             }
             // Verifica maioridade
-            LocalDate nasc  = MascaraUtil.converterData(campoNascimento.getText());
-            LocalDate hoje  = LocalDate.now();
-            int       idade = hoje.getYear() - nasc.getYear();
+            LocalDate nasc = MascaraUtil.converterData(campoNascimento.getText());
+            LocalDate hoje = LocalDate.now();
+            int idade = hoje.getYear() - nasc.getYear();
             if (nasc.plusYears(idade).isAfter(hoje)) idade--;
             if (idade < 18) {
                 lblErro.setText("Você precisa ter 18 anos ou mais.");
@@ -314,7 +313,7 @@ public class TelaCadastro extends JFrame {
     }
 
     private void realizarCadastro() {
-        String senha     = new String(campoSenha.getPassword());
+        String senha = new String(campoSenha.getPassword());
         String confSenha = new String(campoConfSenha.getPassword());
 
         if (senha.length() < 8) {
@@ -327,11 +326,11 @@ public class TelaCadastro extends JFrame {
         }
 
         // Coleta e limpa os dados
-        String nome      = campoNome.getText().trim();
-        String cpf       = MascaraUtil.apenasNumeros(campoCpf.getText());
-        String email     = campoEmail.getText().trim();
-        String celular   = MascaraUtil.apenasNumeros(campoCelular.getText());
-        LocalDate nasc   = MascaraUtil.converterData(campoNascimento.getText());
+        String nome = campoNome.getText().trim();
+        String cpf = MascaraUtil.apenasNumeros(campoCpf.getText());
+        String email = campoEmail.getText().trim();
+        String celular = MascaraUtil.apenasNumeros(campoCelular.getText());
+        LocalDate nasc = MascaraUtil.converterData(campoNascimento.getText());
 
         // BCrypt — hash da senha antes de qualquer operação no banco
         String hashSenha = SenhaUtil.criptografar(senha);
@@ -344,9 +343,7 @@ public class TelaCadastro extends JFrame {
 
         try {
             // Verifica se CPF já existe
-            PreparedStatement psVerifica = con.prepareStatement(
-                    "SELECT cd_usuario FROM usuario WHERE cd_cpf = ?"
-            );
+            PreparedStatement psVerifica = con.prepareStatement("SELECT cd_usuario FROM usuario WHERE cd_cpf = ?");
             psVerifica.setString(1, cpf);
             ResultSet rs = psVerifica.executeQuery();
             if (rs.next()) {
@@ -357,9 +354,7 @@ public class TelaCadastro extends JFrame {
             rs.close(); psVerifica.close();
 
             // Verifica se e-mail já existe
-            PreparedStatement psEmail = con.prepareStatement(
-                    "SELECT cd_usuario FROM usuario WHERE ds_email = ?"
-            );
+            PreparedStatement psEmail = con.prepareStatement("SELECT cd_usuario FROM usuario WHERE ds_email = ?");
             psEmail.setString(1, email);
             ResultSet rsEmail = psEmail.executeQuery();
             if (rsEmail.next()) {
@@ -370,10 +365,7 @@ public class TelaCadastro extends JFrame {
             rsEmail.close(); psEmail.close();
 
             // Insere com senha já criptografada pelo BCrypt
-            PreparedStatement psInsere = con.prepareStatement(
-                    "INSERT INTO usuario (nm_usuario, cd_cpf, cd_celular, ds_email, senha, dt_nascimento) " +
-                            "VALUES (?, ?, ?, ?, ?, ?)"
-            );
+            PreparedStatement psInsere = con.prepareStatement("INSERT INTO usuario (nm_usuario, cd_cpf, cd_celular, ds_email, senha, dt_nascimento) " + "VALUES (?, ?, ?, ?, ?, ?)");
             psInsere.setString(1, nome);
             psInsere.setString(2, cpf);
             psInsere.setString(3, celular);
@@ -400,7 +392,7 @@ public class TelaCadastro extends JFrame {
         }
     }
 
-    // ── Indicador de etapas visual ────────────────────────
+    // Indicador de etapas visual
 
     private JPanel criarIndicadorEtapas() {
         JPanel p = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
@@ -453,7 +445,7 @@ public class TelaCadastro extends JFrame {
         }
     }
 
-    // ── Helpers de estilo ────────────────────────────────
+    // Helpers de estilo
 
     private JLabel criarLabelCentro(String t, int size, int style, Color cor) {
         JLabel l = new JLabel(t);
