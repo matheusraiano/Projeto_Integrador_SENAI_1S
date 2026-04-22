@@ -10,7 +10,7 @@ import java.awt.*;
 
 import static banco.Conexao.*;
 import static banco.Verificacoes.*;
-
+//Código feito por Matheus Raiano
 public class TelaCadastro {
     public static void cadastro() {
         //CRIANDO O FRAME

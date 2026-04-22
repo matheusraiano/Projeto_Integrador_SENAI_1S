@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+//Código feito por Matheus Raiano
 public class Verificacoes {
     public static boolean verificarLogin(String cpf, String senha) {
         // Query SQL com parâmetros (evita SQL Injection)

@@ -3,7 +3,7 @@ import telas.TelaLogin;
 
 import javax.swing.*;
 import java.sql.Connection;
-
+//Código feito por Matheus Raiano
 public class Main {
 
     public static void main(String[] args) {
@@ -11,10 +11,13 @@ public class Main {
 
         if(conn != null) {
             System.out.println("Conexão ao banco de dados efetuada com sucesso!");
+        } else {
+            System.out.println("[ERRO] Banco de dados não encontrado!");
         }
 
         SwingUtilities.invokeLater(() -> {
             TelaLogin.login();
         });
+
     }
 }
