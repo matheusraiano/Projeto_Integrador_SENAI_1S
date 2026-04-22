@@ -14,7 +14,7 @@ public class Main {
         }
 
         SwingUtilities.invokeLater(() -> {
-            new TelaLogin().setVisible(true);
+            TelaLogin.login();
         });
     }
 }
