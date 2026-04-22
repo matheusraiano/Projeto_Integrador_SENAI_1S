@@ -31,7 +31,7 @@ public class TelaCadastroNova {
 
         //CRIANDO O PAINEL
         //criar o painel com o layout que eu quiser
-        JPanel painel = new JPanel(new GridLayout(4, 1, 10, 10));
+        JPanel painel = new JPanel(new GridLayout(5, 1, 10, 10));
         JPanel pPrVo = new JPanel(new GridLayout(2, 2, 10, 10));
         JPanel passo1 = new JPanel(new GridLayout(3, 2, 10, 10));
         JPanel passo2 = new JPanel(new GridLayout(2, 2, 10, 10));
@@ -83,7 +83,7 @@ public class TelaCadastroNova {
         }
         JLabel lblsenha = new JLabel("Senha:");
         JPasswordField txtSenha = new JPasswordField();
-        JButton btnentrar = new JButton("Já tem conta? Cliquen aqui!");
+        JButton btnentrar = new JButton("Já tem conta? Clique aqui!");
         //filtrando o cpf e numero
         ((AbstractDocument) txtcpf.getDocument()).setDocumentFilter(new ApenasNumerosFilter(11));
         ((AbstractDocument) txtnumero.getDocument()).setDocumentFilter(new ApenasNumerosFilter(11));
@@ -102,6 +102,7 @@ public class TelaCadastroNova {
             passo1.add(txtnascimento);
             painel.add(pPrVo);
             pPrVo.add(btnProx);
+            painel.add(btnentrar);
         } else if (etapa.get() == 2) {
             painel.add(lblTit);
             painel.add(lblCont);
@@ -113,6 +114,7 @@ public class TelaCadastroNova {
             painel.add(pPrVo);
             pPrVo.add(btnVolt);
             pPrVo.add(btnProx);
+            painel.add(btnentrar);
         } else {
             painel.add(lblTit);
             painel.add(lblCont);
@@ -122,6 +124,7 @@ public class TelaCadastroNova {
             painel.add(pPrVo);
             pPrVo.add(btnVolt);
             pPrVo.add(btnCriar);
+            painel.add(btnentrar);
         }
 
 
@@ -145,7 +148,7 @@ public class TelaCadastroNova {
                     passo2, passo3, lblnome, txtnome,
                     lblcpf, finalTxtcpf, lblnascimento, finalTxtnascimento,
                     lblemail, txtemail, lblnumero, finalTxtnumero,
-                    lblsenha, txtSenha);
+                    lblsenha, txtSenha, btnentrar);
             if (etapa.get() == 1) {
                 if (nascimentoFormatado == null) {
                     JOptionPane.showMessageDialog(frame, "Data inválida!", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -186,7 +189,7 @@ public class TelaCadastroNova {
                     passo2, passo3, lblnome, txtnome,
                     lblcpf, finalTxtcpf, lblnascimento, finalTxtnascimento,
                     lblemail, txtemail, lblnumero, finalTxtnumero,
-                    lblsenha, txtSenha);
+                    lblsenha, txtSenha, btnentrar);
         });
         //abrir
         btnCriar.addActionListener(e -> {
@@ -214,7 +217,7 @@ public class TelaCadastroNova {
                                       JPanel passo2, JPanel passo3, JLabel lblnome, JTextField txtnome,
                                       JLabel lblcpf, JFormattedTextField txtcpf, JLabel lblnascimento, JFormattedTextField txtnascimento,
                                       JLabel lblemail, JTextField txtemail, JLabel lblnumero, JFormattedTextField txtnumero,
-                                      JLabel lblsenha, JPasswordField txtSenha) {
+                                      JLabel lblsenha, JPasswordField txtSenha, JButton btnentrar) {
         painel.removeAll();
 
         JPanel pPrVo = new JPanel(new GridLayout(1, 2, 10, 10));
@@ -233,6 +236,7 @@ public class TelaCadastroNova {
             passo1.add(txtnascimento);
             painel.add(pPrVo);
             pPrVo.add(btnProx);
+            painel.add(btnentrar);
         } else if (etapa.get() == 2) {
             painel.add(lblTit);
             painel.add(lblCont);
@@ -244,6 +248,7 @@ public class TelaCadastroNova {
             painel.add(pPrVo);
             pPrVo.add(btnProx);
             pPrVo.add(btnVolt);
+            painel.add(btnentrar);
         } else {
             painel.add(lblTit);
             painel.add(lblCont);
@@ -253,6 +258,7 @@ public class TelaCadastroNova {
             painel.add(pPrVo);
             pPrVo.add(btnCriar);
             pPrVo.add(btnVolt);
+            painel.add(btnentrar);
         }
 
         painel.revalidate();
