@@ -72,7 +72,6 @@ public class TelaCadastro {
         //filtrando o cpf e numero
         ((AbstractDocument) txtcpf.getDocument()).setDocumentFilter(new ApenasNumerosFilter(11));
         ((AbstractDocument) txtnumero.getDocument()).setDocumentFilter(new ApenasNumerosFilter(11));
-        ((AbstractDocument) txtemail.getDocument()).setDocumentFilter(new ApenasNumerosFilter(8));
 
 
         //ADICIONANDO OS COMPONENTES AO PAINEL

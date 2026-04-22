@@ -105,7 +105,7 @@ public class TelaLogin {
         btnAbrirConta.addActionListener(e -> {
             SwingUtilities.invokeLater(() -> {
                 frame.setVisible(false);
-                TelaCadastro.cadastro();
+                TelaCadastroNova.cadastro();
             });
         });
     }
