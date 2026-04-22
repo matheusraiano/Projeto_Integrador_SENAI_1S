@@ -9,6 +9,10 @@ import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static banco.Verificacoes.*;
+import static banco.Verificacoes.cpfExiste;
+import static banco.Verificacoes.cpfValido;
+
 //Código feito por Matheus Raiano
 public class TelaCadastroNova {
     public static void cadastro() {
@@ -125,6 +129,15 @@ public class TelaCadastroNova {
         JFormattedTextField finalTxtcpf = txtcpf;
         JFormattedTextField finalTxtnascimento = txtnascimento;
         JFormattedTextField finalTxtnumero = txtnumero;
+        String senha = new String(txtSenha.getPassword());
+        String nome = txtnome.getText();
+        String cpfBruto = finalTxtcpf.getText();
+        String cpf = limparCpf(cpfBruto);
+        String nascimentoFormatado = formatarDataParaMySQL(finalTxtnascimento.getText());
+        String email = txtemail.getText();
+        String celularBruto = finalTxtnumero.getText();
+        String celular = limparNumero(celularBruto);
+        //proximo
         btnProx.addActionListener(e -> {
             etapa.addAndGet(1);
             atualizarTela(painel, lblCont, lblTit, btnProx,
@@ -133,7 +146,39 @@ public class TelaCadastroNova {
                     lblcpf, finalTxtcpf, lblnascimento, finalTxtnascimento,
                     lblemail, txtemail, lblnumero, finalTxtnumero,
                     lblsenha, txtSenha);
+            if (etapa.get() == 1) {
+                if (nascimentoFormatado == null) {
+                    JOptionPane.showMessageDialog(frame, "Data inválida!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (!nomeValido(nome)) {
+                    JOptionPane.showMessageDialog(frame, "Nome inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (!cpfValido(cpf)) {
+                    JOptionPane.showMessageDialog(frame, "CPF deve ter 11 números!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (cpfExiste(cpf)) {
+                    JOptionPane.showMessageDialog(frame, "CPF já cadastrado!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (!dataValida(nascimentoFormatado)) {
+                    JOptionPane.showMessageDialog(frame, "Data inválida! Use dd/mm/yyyy", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            } else if (etapa.get() == 2) {
+                if (!emailValido(email)) {
+                    JOptionPane.showMessageDialog(frame, "Email inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (!celularValido(celular)) {
+                    JOptionPane.showMessageDialog(frame, "Celular inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
         });
+        //voltar
         btnVolt.addActionListener(e -> {
             etapa.addAndGet(-1);
             atualizarTela(painel, lblCont, lblTit, btnProx,
@@ -142,6 +187,23 @@ public class TelaCadastroNova {
                     lblcpf, finalTxtcpf, lblnascimento, finalTxtnascimento,
                     lblemail, txtemail, lblnumero, finalTxtnumero,
                     lblsenha, txtSenha);
+        });
+        //abrir
+        btnCriar.addActionListener(e -> {
+            if (!senhaValida(senha)) {
+                JOptionPane.showMessageDialog(frame, "Senha fraca! Precisa ter:\n- 8+ caracteres\n- Maiúscula\n- Minúscula\n- Especial", "ERRO", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            boolean sucesso = cadastrarUsuario(nome, cpf, email, celular, nascimentoFormatado, senha);
+
+            if (sucesso) {
+                JOptionPane.showMessageDialog(frame, "Conta criada com sucesso!", "AVISO", JOptionPane.INFORMATION_MESSAGE);
+                frame.dispose();
+                TelaLogin.login();
+            } else {
+                JOptionPane.showMessageDialog(frame, "Erro ao cadastrar!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         frame.setVisible(true);
