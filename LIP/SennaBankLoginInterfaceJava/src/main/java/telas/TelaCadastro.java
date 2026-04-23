@@ -212,6 +212,14 @@ public class TelaCadastro {
             }
         });
 
+        //entrar
+        btnentrar.addActionListener(e -> {
+            SwingUtilities.invokeLater(() -> {
+                frame.setVisible(false);
+                TelaLogin.login();
+            });
+        });
+
         frame.setVisible(true);
     }
 
