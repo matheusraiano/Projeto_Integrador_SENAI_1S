@@ -4,7 +4,8 @@
 -- =========================
 CREATE DATABASE senna_bank;
 USE senna_bank;
-
+delete from usuario where cd_usuario = 1;
+select * from usuario;
 -- =========================
 -- USUARIO
 -- =========================
