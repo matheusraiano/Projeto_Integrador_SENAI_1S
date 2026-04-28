@@ -7,6 +7,10 @@ import java.sql.Connection;
 public class Main {
 
     public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            TelaLogin.login();
+        });
+
         Connection conn = Conexao.conectar();
 
         if(conn != null) {
@@ -14,10 +18,5 @@ public class Main {
         } else {
             System.out.println("[ERRO] Banco de dados não encontrado!");
         }
-
-        SwingUtilities.invokeLater(() -> {
-            TelaLogin.login();
-        });
-
     }
 }
