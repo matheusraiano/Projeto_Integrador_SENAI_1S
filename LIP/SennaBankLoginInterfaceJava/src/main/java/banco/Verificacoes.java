@@ -1,5 +1,7 @@
 package banco;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class Verificacoes {
     public static boolean verificarLogin(String cpf, String senha) {
         // Query SQL com parâmetros (evita SQL Injection)
-        String sql = "SELECT * FROM usuario WHERE cd_cpf = ? AND senha = ?";
+        String sql = "SELECT senha FROM usuario WHERE cd_cpf = ?";
         try (
                 // Abre conexão com o banco usando sua classe
                 Connection conn = Conexao.conectar();
@@ -18,12 +20,14 @@ public class Verificacoes {
         ) {
             // Substitui os "?" da query pelos valores reais
             stmt.setString(1, cpf); // primeiro "?" recebe cpf
-            stmt.setString(2, senha); // segundo "?" recebe senha
             // Executa a consulta no banco
             ResultSet rs = stmt.executeQuery();
-            // rs.next() retorna true se encontrou algum resultado
-            // ou seja, login válido
-            return rs.next();
+            if (rs.next()) {
+                String hashBanco = rs.getString("senha");
+
+                return BCrypt.checkpw(senha, hashBanco);
+            }
+            return false;
 
         } catch (Exception e) {
             // Mostra erro no console para debug
@@ -44,7 +48,8 @@ public class Verificacoes {
             stmt.setString(2, cpf);
             stmt.setString(3, celular);
             stmt.setString(4, email);
-            stmt.setString(5, senha);
+            String hash = BCrypt.hashpw(senha, BCrypt.gensalt());
+            stmt.setString(5, hash);
             stmt.setDate(6, java.sql.Date.valueOf(nascimentoFormatado));
 
             stmt.executeUpdate();
