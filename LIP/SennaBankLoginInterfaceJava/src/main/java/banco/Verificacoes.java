@@ -13,7 +13,7 @@ public class Verificacoes {
         // Query SQL com parâmetros (evita SQL Injection)
         String sql = "SELECT senha FROM usuario WHERE cd_cpf = ?";
         try (
-                // Abre conexão com o banco usando sua classe
+                // Abre conexão com o banco
                 Connection conn = Conexao.conectar();
                 // Prepara a query para execução segura
                 PreparedStatement stmt = conn.prepareStatement(sql)
@@ -84,7 +84,7 @@ public class Verificacoes {
         return senha.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$");
     }
     public static boolean cpfExiste(String cpf) {
-        String sql = "SELECT 1 FROM usuario WHERE cd_cpf = ?";
+        String sql = "SELECT * FROM usuario WHERE cd_cpf = ?";
 
         try (Connection conn = Conexao.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
