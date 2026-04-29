@@ -100,10 +100,11 @@ div.esquerdo h6 {
 
 div.esquerdo div {
     background-color: gold;
-    width: 22%;
+    width: 21%;
     margin-left: 25px;
     border-radius: 7px;
     height: 15%;
+    color: rgba(240, 248, 255, 0);
 }
 
 div.esquerdo p.numeros {
