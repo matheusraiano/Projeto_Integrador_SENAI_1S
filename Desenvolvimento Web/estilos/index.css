@@ -33,6 +33,28 @@ div.textos p.badge {
     padding: 5px 14px;
 }
 
+@keyframes brilhar {
+    0% {
+        box-shadow: 0px 0px 10px 2px var(--cor3);
+        border-radius: 50%;
+    }
+    50% {
+        box-shadow: 0px 0px 20px 4px var(--cor3);
+        border-radius: 50%;
+    }
+    100% {
+        box-shadow: 0px 0px 10px 2px var(--cor3);
+        border-radius: 50%;
+    }
+}
+
+span.ponto_anim {
+    transition: all 0.3s ease;
+    animation: brilhar 3s ease-in-out infinite;
+    background-color: rgba(0, 0, 255, 0.514);
+    color: var(--transparente);
+}
+
 div.textos h1 {
     font-size: 3.5em;
 }

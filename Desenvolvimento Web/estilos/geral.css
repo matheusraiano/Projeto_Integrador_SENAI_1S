@@ -17,6 +17,7 @@
     --verdeTransparente: rgba(0, 128, 0, 0.158);
     --amareloTransparente: rgba(128, 119, 0, 0.158);
     --vermelhoTransparente: rgba(128, 0, 0, 0.158);
+    --transparente: rgba(255, 255, 255, 0);
 }
 
 html {
@@ -657,20 +658,21 @@ div.g2 {
     background: var(--cor1);
     padding: 0 25px 0 25px;
     border-radius: 7px;
-    font-size: 0.1rem;
+    color: var(--transparente);
 }
 
 div.y2 {
     background: var(--cor2);
     padding: 0 25px 0 25px;
     border-radius: 7px;
+    color: var(--transparente);
 }
 
 div.r2 {
     background: var(--cor3);
     padding: 0 25px 0 25px;
     border-radius: 7px;
-    font-size: 0.1rem;
+    color: var(--transparente);
 }
 
 section.primeiraParte h5 {
