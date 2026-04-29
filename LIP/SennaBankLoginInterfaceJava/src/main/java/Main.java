@@ -15,8 +15,6 @@ public class Main {
 
         if(conn != null) {
             System.out.println("Conexão ao banco de dados efetuada com sucesso!");
-        } else {
-            System.out.println("[ERRO] Banco de dados não encontrado!");
         }
     }
 }
