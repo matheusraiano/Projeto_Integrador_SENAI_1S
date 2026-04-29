@@ -49,6 +49,22 @@ div.segundaParte {
     justify-content: center;
 }
 
+@keyframes flutuar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+div.cartao_anim {
+    animation: flutuar 3s ease-in-out infinite;
+}
+
 div.cartao {
     background-image: url('../midias/cartao_classic.png');
     background-repeat: no-repeat;
@@ -148,6 +164,7 @@ div.funcCaixa {
     width: 180px;
     height: 200px;
     transition: all 0.3s ease;
+    cursor: grab;
 }
 
 div.funcCaixa:hover {
