@@ -96,7 +96,7 @@ div.cartao {
     display: flex;
     border-radius: 20px;
     justify-content: center;
-    gap: 100px;
+    gap: 80px;
     border: 1px solid rgba(255, 217, 0, 0.295);
     transition: all 0.3s ease;
     transform: rotate(-6deg);
