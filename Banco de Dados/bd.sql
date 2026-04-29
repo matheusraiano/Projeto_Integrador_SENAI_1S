@@ -54,7 +54,7 @@ CREATE TABLE conta (
 -- =========================
 CREATE TABLE chave_pix (
     cd_chave INT AUTO_INCREMENT PRIMARY KEY,
-    tp_chave VARCHAR(20) NOT NULL, -- cpf, email, celular, aleatoria
+    tp_chave VARCHAR(60) NOT NULL, -- cpf, email, celular, aleatoria
     ds_chave VARCHAR(150) NOT NULL UNIQUE,
     fk_cd_conta INT,
 
@@ -97,7 +97,7 @@ CREATE TABLE cartao_credito (
     cd_credito INT AUTO_INCREMENT PRIMARY KEY,
     nr_cartao CHAR(16) NOT NULL UNIQUE,
     nm_titular VARCHAR(100) NOT NULL,
-    nm_cartao VARCHAR(50), -- Classic, Gold, Infinito
+    nm_cartao VARCHAR(50), -- Classic, Interlagos, Monaco
     dt_validade DATE NOT NULL,
     cvv CHAR(3) NOT NULL,
     limite_total DECIMAL(10,2) NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE fatura (
     valor_total DECIMAL(10,2) DEFAULT 0.00,
     dt_vencimento DATE NOT NULL,
     dt_pagamento DATE,
-    ds_status VARCHAR(20) DEFAULT 'aberta', -- aberta, paga, atrasada
+    ds_status VARCHAR(20) DEFAULT 'aberta', -- aberta, fechada, vencida, paga, atrasada
     fk_cd_credito INT,
 
     FOREIGN KEY (fk_cd_credito) REFERENCES cartao_credito(cd_credito)
