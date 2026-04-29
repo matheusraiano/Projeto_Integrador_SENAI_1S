@@ -18,7 +18,6 @@ CREATE TABLE usuario (
     dt_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     ds_status VARCHAR(20) DEFAULT 'ativo' -- ativo, inativo, bloqueado
 );
-
 -- =========================
 -- ENDERECO
 -- =========================
@@ -35,7 +34,6 @@ CREATE TABLE endereco (
 
     FOREIGN KEY (fk_cd_usuario) REFERENCES usuario(cd_usuario)
 );
-
 -- =========================
 -- CONTA
 -- =========================
@@ -51,7 +49,6 @@ CREATE TABLE conta (
 
     FOREIGN KEY (fk_cd_usuario) REFERENCES usuario(cd_usuario)
 );
-
 -- =========================
 -- CHAVE PIX
 -- =========================
@@ -63,7 +60,6 @@ CREATE TABLE chave_pix (
 
     FOREIGN KEY (fk_cd_conta) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- TRANSACAO
 -- =========================
@@ -80,7 +76,6 @@ CREATE TABLE transacao (
     FOREIGN KEY (fk_conta_origem)  REFERENCES conta(cd_conta),
     FOREIGN KEY (fk_conta_destino) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- CARTAO DEBITO
 -- =========================
@@ -95,7 +90,6 @@ CREATE TABLE cartao_debito (
 
     FOREIGN KEY (fk_cd_conta) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- CARTAO CREDITO
 -- =========================
@@ -113,7 +107,6 @@ CREATE TABLE cartao_credito (
 
     FOREIGN KEY (fk_cd_conta) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- FATURA
 -- =========================
@@ -128,7 +121,6 @@ CREATE TABLE fatura (
 
     FOREIGN KEY (fk_cd_credito) REFERENCES cartao_credito(cd_credito)
 );
-
 -- =========================
 -- COMPRA CREDITO
 -- =========================
@@ -142,7 +134,6 @@ CREATE TABLE compra_credito (
 
     FOREIGN KEY (fk_cd_fatura) REFERENCES fatura(cd_fatura)
 );
-
 -- =========================
 -- INVESTIMENTO
 -- =========================
@@ -160,7 +151,6 @@ CREATE TABLE investimento (
 
     FOREIGN KEY (fk_cd_conta) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- EMPRESTIMO
 -- =========================
@@ -178,7 +168,6 @@ CREATE TABLE emprestimo (
 
     FOREIGN KEY (fk_cd_conta) REFERENCES conta(cd_conta)
 );
-
 -- =========================
 -- PARCELA EMPRESTIMO
 -- =========================
@@ -193,7 +182,6 @@ CREATE TABLE parcela_emprestimo (
 
     FOREIGN KEY (fk_cd_emprestimo) REFERENCES emprestimo(cd_emprestimo)
 );
-
 -- =========================
 -- NOTIFICACAO
 -- =========================
