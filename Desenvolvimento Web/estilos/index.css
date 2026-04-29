@@ -50,12 +50,11 @@ div.segundaParte {
 }
 
 div.cartao {
-
-    background-image: url('../midias/cartao2.png');
+    background-image: url('../midias/cartao_classic.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 110%;
     display: flex;
     border-radius: 20px;
     justify-content: center;
