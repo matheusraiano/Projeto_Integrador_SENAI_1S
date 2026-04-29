@@ -74,7 +74,7 @@ div.cartao {
     display: flex;
     border-radius: 20px;
     justify-content: center;
-    gap: 150px;
+    gap: 100px;
     border: 1px solid rgba(255, 217, 0, 0.295);
     transition: all 0.3s ease;
     transform: rotate(-6deg);
@@ -88,6 +88,10 @@ div.cartao:hover {
     border: 1px solid rgba(94, 255, 0, 0.295);
 }
 
+div.esquerdo {
+    width: 200px;
+}
+
 div.esquerdo h6 {
     font-size: 1em;
     margin-left: 25px;
@@ -96,7 +100,7 @@ div.esquerdo h6 {
 
 div.esquerdo div {
     background-color: gold;
-    width: 30%;
+    width: 22%;
     margin-left: 25px;
     border-radius: 7px;
     height: 15%;
@@ -113,10 +117,13 @@ div.esquerdo p.nome {
     color: var(--textosP);
 }
 
+div.direito {
+    width: 80px;
+}
+
 div.direito p {
-    margin-right: 25px;
-    margin-top: 25px;
-    font-size: smaller;
+    margin-top: 30px;
+    font-size: 0.7em;
     color: var(--textosP);
 }
 /*Funcionalidades*/
