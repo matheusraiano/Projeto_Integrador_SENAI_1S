@@ -121,7 +121,7 @@ div.esquerdo h6 {
 }
 
 div.esquerdo div {
-    background: linear-gradient(to bottom right, gold 30%, rgb(255, 240, 156));
+    background: linear-gradient(to bottom right, rgb(255, 240, 156), gold 30%, rgb(255, 240, 156));
     width: 21%;
     margin-left: 25px;
     border-radius: 7px;
