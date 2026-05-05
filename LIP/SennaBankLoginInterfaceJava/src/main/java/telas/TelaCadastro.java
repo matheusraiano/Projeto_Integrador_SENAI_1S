@@ -24,9 +24,10 @@ public class TelaCadastro {
         //modo que fecha a janela
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //tamanho da janela
-        frame.setSize(600,420);
+        frame.setSize(600,520);
         //local onde vai aparecer a janela, como está null, fica no centro
         frame.setLocationRelativeTo(null);
+        frame.setFont(new Font("Arial", Font.BOLD, 24));
 
 
         //CRIANDO O PAINEL
@@ -46,7 +47,11 @@ public class TelaCadastro {
 
         //CRIANDO OS COMPONENTES
         JLabel lblTit = new JLabel("Senna Bank - Cadastro");
+        lblTit.setBounds(0,0, 100, 50);
+        lblTit.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblCont = new JLabel("Passo "+etapa.get());
+        lblCont.setBounds(0, 0, 100, 50);
+        lblCont.setHorizontalAlignment(SwingConstants.CENTER);
         JButton btnProx = new JButton("Próximo");
         JButton btnVolt = new JButton("Voltar");
         JButton btnCriar = new JButton("Criar Conta!");

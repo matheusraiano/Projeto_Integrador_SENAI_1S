@@ -22,6 +22,7 @@ public class TelaLogin {
         frame.setSize(600,320);
         //local onde vai aparecer a janela, como está null, fica no centro
         frame.setLocationRelativeTo(null);
+        frame.setFont(new Font("Arial", Font.BOLD, 24));
 
 
         //CRIANDO O PAINEL
@@ -35,6 +36,8 @@ public class TelaLogin {
         //CRIANDO OS COMPONENTES
         //assim eu crio uma label para colocar algo escrito por exemplo
         JLabel lblTitulo = new JLabel("Senna Bank - Login");
+        lblTitulo.setBounds(0,0, 300, 100);
+        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         JLabel lblCpf = new JLabel("CPF:");
         //aqui eu criei o campo de inserir texto
         JFormattedTextField txtCpf;
