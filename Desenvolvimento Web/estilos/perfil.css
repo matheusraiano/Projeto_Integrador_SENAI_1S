@@ -36,8 +36,7 @@ div.perfil-perfil img {
 }
 div.perfil-perfil img:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 70px 2px var(--boxShadowVerdeClaro);
-    border: 1px solid rgba(94, 255, 0, 0.295);
+    box-shadow: 0px 0px 20px 2px var(--boxShadowVerdeClaro);
 }
 main.perfil-main {
     display: grid;
@@ -68,7 +67,7 @@ div.nav-item {
     color: #575656;
 }
 div.nav-item:hover {
-    background-color: #302e2e;
+    background-color: var(--verdeTransparente);
     color: white;
     cursor: pointer;
 }
