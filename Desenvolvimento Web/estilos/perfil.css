@@ -1,17 +1,19 @@
 @import url(geral.css);
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
-
-html { 
-    scroll-behavior: smooth; 
-}
+/**/
+/*GERAL*/
+/**/
 body {
     display: grid;
     font-family: 'DM Sans', sans-serif;
     font-size: 15px;
     line-height: 1.5;
 }
+/**/
+/*HEADER*/
+/**/
 header.perfil-header {
-    background-color: #202020;
+    background-color: #0f0f0f;
     display: grid;
     grid-template-columns: 1fr 7fr 1fr;
     color: #575656;
@@ -23,6 +25,27 @@ header.perfil-header {
 header.perfil-header img {
     width: 50%;
     margin: auto;
+}
+div.header-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #070707;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: #888;
+    margin: auto;
+}
+div.header-center input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e8e8e8;
+    font-family: inherit;
+    font-size: 13px;
+    width: 500px;
 }
 div.perfil-perfil {
     width: 50%;
@@ -36,13 +59,17 @@ div.perfil-perfil img:hover {
     cursor: pointer;
     box-shadow: 0px 0px 20px 2px var(--boxShadowVerdeClaro);
 }
+/**/
+/*MAIN*/
+/**/
 main.perfil-main {
     display: grid;
     grid-template-columns: 1fr 7fr;
     min-height: 100vh;
 }
+/*Barra Lateral*/
 aside.perfil-aside {
-    background-color: #202020;
+    background-color: #0f0f0f;
 }
 aside.perfil-aside h3 {
     text-align: center;
@@ -74,6 +101,7 @@ div.nav-item:hover {
     color: white;
     cursor: pointer;
 }
+/*Conteudo*/
 section.perfil-conteudo {
-    background-color: #0f0f0f;
+
 }
