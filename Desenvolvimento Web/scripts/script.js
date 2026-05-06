@@ -63,8 +63,12 @@ function carregarHeader() {
             });
         });
 }
-
-carregarHeader();
+const paginasSemHeader = ["perfil", "header"];
+const paginaAtual = window.location.pathname;
+const bloquear = paginasSemHeader.some(p => paginaAtual.includes(p));
+if (!bloquear) {
+  carregarHeader();
+}
 //
 //ENTRAR CONTA
 //
@@ -76,7 +80,6 @@ function mascaraCpf(input) {
     v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
     input.value = v;
 }
-
 // Mostrar/esconder senha
 function toggleSenha(inputId, btn) {
     const input = document.getElementById(inputId);
@@ -88,13 +91,11 @@ function toggleSenha(inputId, btn) {
         btn.textContent = '👁';
     }
 }
-
 // Trocar de drawer sem fechar
 function trocarDrawer(idDestino) {
     document.querySelectorAll('.drawer').forEach(d => d.classList.remove('aberto'));
     document.getElementById(idDestino).classList.add('aberto');
 }
-
 // Validação do login
 function tentarLogin() {
     const cpf = document.getElementById('loginCpf').value.replace(/\D/g, '');
@@ -131,7 +132,6 @@ function mascaraCelular(input) {
     v = v.replace(/(\d{5})(\d{1,4})$/, '$1-$2');
     input.value = v;
 }
-
 // Força da senha
 document.addEventListener('input', function(e) {
     if (e.target.id !== 'cadSenha') return;
@@ -150,7 +150,6 @@ document.addEventListener('input', function(e) {
     barra.style.width = larguras[forca];
     barra.style.backgroundColor = cores[forca];
 });
-
 // Avançar etapa
 function avancarCadastro(etapa) {
     if (!validarEtapa(etapa)) return;
@@ -168,14 +167,12 @@ function avancarCadastro(etapa) {
         proximoPasso.style.gap = '20px';
         document.getElementById('etapa-dot-' + proxima).classList.add('ativa');
     }
-
     // Esconde o rodapé na etapa 3
     if (etapa === 2) {
         document.getElementById('divisorLogin').style.display = 'none';
         document.getElementById('btnJaTenho').style.display = 'none';
     }
 }
-
 // Voltar etapa
 function voltarCadastro(etapa) {
     document.getElementById('passo' + etapa).style.display = 'none';
@@ -193,7 +190,6 @@ function voltarCadastro(etapa) {
         document.getElementById('btnJaTenho').style.display = 'block';
     }
 }
-
 // Validar cada etapa
 function validarEtapa(etapa) {
     let valido = true;
@@ -226,7 +222,6 @@ function validarEtapa(etapa) {
             }
         }
     }
-
     if (etapa === 2) {
         const email = document.getElementById('cadEmail').value.trim();
         const celular = document.getElementById('cadCelular').value.replace(/\D/g, '');
@@ -243,10 +238,8 @@ function validarEtapa(etapa) {
             valido = false;
         }
     }
-
     return valido;
 }
-
 // Finalizar cadastro
 function finalizarCadastro() {
     const senha = document.getElementById('cadSenha').value;
@@ -263,7 +256,6 @@ function finalizarCadastro() {
         document.getElementById('erroCadSenhaConf').textContent = 'As senhas não coincidem.';
         return;
     }
-
     // Aqui futuramente vai a chamada para o backend Java
     document.getElementById('passo3').style.display = 'none';
     document.getElementById('etapa-dot-3').classList.remove('ativa');
@@ -272,7 +264,6 @@ function finalizarCadastro() {
     document.getElementById('passoSucesso').style.flexDirection = 'column';
     document.getElementById('passoSucesso').style.gap = '20px';
 }
-
 // Calcular idade
 function calcularIdade(dataNasc) {
     const hoje = new Date();

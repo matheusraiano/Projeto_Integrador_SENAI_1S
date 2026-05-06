@@ -1,0 +1,67 @@
+@import url(geral.css);
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+html { 
+    scroll-behavior: smooth; 
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+header {
+    background-color: #202020;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    color: #575656;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+header img {
+    width: 30%;
+    margin-left: 60px;
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    height: 100vh;
+}
+aside {
+    background-color: #202020;
+}
+aside h3 {
+    text-align: center;
+    color: #777474;
+}
+aside hr {
+    width: 70%;
+    border: 0; 
+    height: 1px; 
+    background-color: #777474;
+}
+nav.navegacao {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+div.nav-item {
+    padding: 15px;
+    transition: all 0.3s ease;
+    color: #575656;
+}
+div.nav-item:hover {
+    background-color: #302e2e;
+    color: white;
+    cursor: pointer;
+}
+section {
+    background-color: #0f0f0f;
+}
+footer {
+    background-color: #0f0f0f;
+}
