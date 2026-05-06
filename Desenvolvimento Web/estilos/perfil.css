@@ -12,39 +12,52 @@ body {
     font-size: 15px;
     line-height: 1.5;
 }
-header {
+header.perfil-header {
     background-color: #202020;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 7fr 1fr;
     color: #575656;
     backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-header img {
-    width: 30%;
-    margin-left: 60px;
+header.perfil-header img {
+    width: 50%;
+    margin: auto;
 }
-main {
+div.perfil-perfil {
+    width: 50%;
+    margin: auto;
+}
+div.perfil-perfil img {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+div.perfil-perfil img:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 70px 2px var(--boxShadowVerdeClaro);
+    border: 1px solid rgba(94, 255, 0, 0.295);
+}
+main.perfil-main {
     display: grid;
     grid-template-columns: 1fr 8fr;
     height: 100vh;
 }
-aside {
+aside.perfil-aside {
     background-color: #202020;
 }
-aside h3 {
+aside.perfil-aside h3 {
     text-align: center;
     color: #777474;
 }
-aside hr {
+aside.perfil-aside hr {
     width: 70%;
     border: 0; 
     height: 1px; 
     background-color: #777474;
 }
-nav.navegacao {
+nav.perfil-navegacao {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -59,9 +72,6 @@ div.nav-item:hover {
     color: white;
     cursor: pointer;
 }
-section {
-    background-color: #0f0f0f;
-}
-footer {
+section.perfil-conteudo {
     background-color: #0f0f0f;
 }
