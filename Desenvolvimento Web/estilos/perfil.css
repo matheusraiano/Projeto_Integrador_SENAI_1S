@@ -65,7 +65,7 @@ div.perfil-perfil img:hover {
 /**/
 main.perfil-main {
     display: grid;
-    grid-template-columns: 1fr 7fr;
+    grid-template-columns: 1fr 8fr;
     min-height: 100vh;
 }
 /*Barra Lateral*/
