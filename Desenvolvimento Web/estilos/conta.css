@@ -1,0 +1,64 @@
+@import url(perfil.css);
+/*Geral*/
+section.contaGeral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    line-height: 0.7;
+    margin: 20px;
+}
+/*PrimeiraParte*/
+div.contaPrimeiraParte {
+    display: flex;
+    background: #0f0f0f;
+    border-radius: 20px;
+    padding: 10px 100px 10px 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.contaPrimeiraParte h5 {
+    text-transform: uppercase;
+    color: var(--textosP);
+}
+
+div.contaPrimeiraParteDois {
+    display: flex;
+    flex-direction: column;
+}
+
+div.contaLimiteCredito h2 {
+    color: var(--verdeClaro);
+}
+
+div.contaLimiteCredito p {
+    color: var(--textosP);
+    font-size: 0.8em;
+}
+/*SegundaParte*/
+div.contaSegundaParte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+div.contaSegundaParte h5 {
+    text-transform: uppercase;
+    color: var(--textosP);
+}
+
+div.contaCaixaSP {
+    width: 350px;
+    background: #0f0f0f;
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+}
+
+div.contaEntradas h2 {
+    color: var(--verdeClaro);
+}
+
+div.contaSaidas h2 {
+    color: red;
+}
