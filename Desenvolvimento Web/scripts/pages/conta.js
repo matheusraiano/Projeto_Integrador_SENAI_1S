@@ -3,7 +3,9 @@
 // CONTA
 // ================================
 //
-export function inicializarConta() {
+export function inicializarConta(cleanupFunctions) {
+    console.log('Conta carregado');
+
     const horas = document.querySelector('.horas');
 
     if (!horas) return;
