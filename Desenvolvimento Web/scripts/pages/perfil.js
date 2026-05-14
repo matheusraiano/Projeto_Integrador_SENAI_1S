@@ -1,5 +1,5 @@
 //Código de Matheus Raiano
-import { inicializarConta } from 'pages/conta.js';
+import { inicializarConta } from 'pages/perfil/conta.js';
 //
 // ELEMENTOS PRINCIPAIS
 //
