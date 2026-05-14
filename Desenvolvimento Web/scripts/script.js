@@ -40,20 +40,35 @@ document.addEventListener('keydown', e => {
 //HEADER LOAD
 //
 function carregarHeader() {
-    fetch('header.html')
+    const base = window.location.pathname.substring(
+        0, window.location.pathname.indexOf('/', 1)
+    );
+    fetch(base + '/pages/utils/header.html')
         .then(res => res.text())
         .then(html => {
             document.body.insertAdjacentHTML('afterbegin', html);
 
-            // Marca link ativo
+            // Corrige os links do header para funcionarem em qualquer página
+            const base = window.location.pathname.substring(
+                0, window.location.pathname.indexOf('/', 1)
+            );
+            document.querySelectorAll('header a[href]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    const limpo = href.replace(/^(\.\.\/)+/, '');
+                    link.setAttribute('href', base + '/' + limpo);
+                }
+            });
+
+            // Marca link ativo — usa endsWith para comparar após corrigir os hrefs
             const paginaAtual = window.location.pathname.split('/').pop();
             document.querySelectorAll('nav a').forEach(link => {
-                if (link.getAttribute('href') === paginaAtual) {
+                if (link.getAttribute('href').endsWith(paginaAtual)) {
                     link.classList.add('ativo');
                 }
             });
 
-            // Eventos da nav — ficam aqui dentro pois a nav só existe após o fetch
+            // Eventos da nav
             document.querySelectorAll('nav a').forEach(link => {
                 link.addEventListener('click', () => fecharMenu());
             });

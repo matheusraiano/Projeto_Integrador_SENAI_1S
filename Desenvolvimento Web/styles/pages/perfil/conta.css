@@ -1,4 +1,4 @@
-@import url(perfil.css);
+@import url(../perfil.css);
 /*Geral*/
 section.contaGeral {
     display: flex;

@@ -1,5 +1,5 @@
 /*Código de Matheus Raiano*/
-@import url(geral.css);
+@import url(../geral.css);
 /**/
 /*MAIN*/
 /**/
@@ -42,13 +42,13 @@ span.num {
     padding: 7px;
 }
 
-div.caixaTerm p {
+div.caixaProt p {
     color: var(--textosP);
     font-size: 1rem;
     line-height: 1.3;
 }
 
-div.caixaTerm ul {
+div.caixaProt ul {
     color: var(--verdeClaro);
     line-height: 1.5;
     width: 100%;

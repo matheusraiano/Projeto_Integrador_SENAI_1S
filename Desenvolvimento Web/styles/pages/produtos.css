@@ -1,5 +1,5 @@
 /*Código de Matheus Raiano*/
-@import url(geral.css);
+@import url(../geral.css);
 /**/
 /*MAIN*/
 /**/
@@ -88,21 +88,21 @@ div.cartaoMini {
 }
 
 div.classic {
-    background-image: url('../midias/cartao_classic.png');
+    background-image: url('../../assets/midias/cartao_classic.png');
     background-repeat: no-repeat;
     background-position: center 30%;
     background-size: 110%;
 }
 
 div.interlagos {
-    background-image: url('../midias/cartao_interlagos.png');
+    background-image: url('../../assets/midias/cartao_interlagos.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
 
 div.monaco {
-    background-image: url('../midias/cartao_monaco.png');
+    background-image: url('../../assets/midias/cartao_monaco.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

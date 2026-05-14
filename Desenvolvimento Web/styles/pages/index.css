@@ -1,5 +1,5 @@
 /*Código de Matheus Raiano*/
-@import url(geral.css);
+@import url(../geral.css);
 /**/
 /*MAIN*/
 /**/
@@ -88,7 +88,7 @@ div.cartao_anim {
 }
 
 div.cartao {
-    background-image: url('../midias/cartao_classic.png');
+    background-image: url('../../assets/midias/cartao_classic.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
