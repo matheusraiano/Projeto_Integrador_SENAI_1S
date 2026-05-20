@@ -1,0 +1,27 @@
+@import url(../geral.css);
+/**/
+/*FOOTER*/
+/**/
+/*Linha*/
+hr.comecoFooter {
+    border: 0;
+    border-top: 0.5px solid var(--linhaHr);
+    margin-top: 100px;
+}
+/*Footer*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+}
+/*Nomeado*/
+section.nomeado {
+    margin-left: 35px;
+}
+/*Direitos*/
+section.direitos {
+    margin-right: 35px;
+    font-size: smaller;
+    color: var(--textosP);
+    text-align: end;
+}

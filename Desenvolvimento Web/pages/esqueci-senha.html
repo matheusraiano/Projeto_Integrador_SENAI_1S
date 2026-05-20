@@ -1,0 +1,273 @@
+<!--Código de Matheus Raiano-->
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Senna Bank - Esqueci minha senha</title>
+        <link rel="stylesheet" href="../styles/pages/esqueci-senha.css">
+        <link rel="shortcut icon" href="../assets/midias/LogoSo2SemFundo.png" type="image/x-icon">
+    </head>
+    <div class="overlay" id="overlay" onclick="fecharPainel()"></div>
+    <section class="drawer" id="drawerEntrar">
+        <button class="drawer-close" onclick="fecharPainel()">✕</button>
+        <h2>Entrar na conta</h2>
+        <p>Bem-vindo de volta!</p>
+        <div class="drawer-campo">
+            <label>CPF</label>
+            <input type="text" id="loginCpf" placeholder="000.000.000-00" maxlength="14" oninput="mascaraCpf(this)" />
+            <span class="campo-erro" id="erroCpf"></span>
+        </div>
+        <div class="drawer-campo">
+            <label>Senha</label>
+            <div class="input-senha">
+                <input type="password" id="loginSenha" placeholder="Digite sua senha" />
+                <button type="button" class="toggle-senha" onclick="toggleSenha('loginSenha', this)">👁</button>
+            </div>
+            <span class="campo-erro" id="erroSenha"></span>
+        </div>
+        <span class="campo-erro campo-erro-geral" id="erroGeral"></span>
+        <button class="drawer-btn-primary" onclick="tentarLogin()">Entrar</button>
+        <a href="esqueci-senha.html" class="drawer-link">Esqueci minha senha</a>
+        <p class="drawer-divisor">Não tem conta?</p>
+        <button class="drawer-btn-secondary" onclick="trocarDrawer('drawerConta')">Abrir conta grátis</button>
+    </section>
+    <section class="drawer" id="drawerConta">
+        <button class="drawer-close" onclick="fecharPainel()">✕</button>
+
+        <!-- Indicador de etapas -->
+        <div class="cadastro-etapas">
+            <div class="etapa ativa" id="etapa-dot-1">1</div>
+            <div class="etapa-linha"></div>
+            <div class="etapa" id="etapa-dot-2">2</div>
+            <div class="etapa-linha"></div>
+            <div class="etapa" id="etapa-dot-3">3</div>
+        </div>
+
+        <!-- Etapa 1: Dados pessoais -->
+        <div class="cadastro-passo" id="passo1">
+            <h2>Dados pessoais</h2>
+            <p>Vamos começar com o básico.</p>
+            <div class="drawer-campo">
+                <label>Nome completo</label>
+                <input type="text" id="cadNome" placeholder="Seu nome completo" />
+                <span class="campo-erro" id="erroCadNome"></span>
+            </div>
+            <div class="drawer-campo">
+                <label>CPF</label>
+                <input type="text" id="cadCpf" placeholder="000.000.000-00"
+                    maxlength="14" oninput="mascaraCpf(this)" />
+                <span class="campo-erro" id="erroCadCpf"></span>
+            </div>
+            <div class="drawer-campo">
+                <label>Data de nascimento</label>
+                <input type="date" id="cadNascimento" />
+                <span class="campo-erro" id="erroCadNascimento"></span>
+            </div>
+            <button class="drawer-btn-primary" onclick="avancarCadastro(1)">Continuar →</button>
+        </div>
+
+        <!-- Etapa 2: Contato -->
+        <div class="cadastro-passo" id="passo2" style="display:none">
+            <h2>Seus contatos</h2>
+            <p>Para te mantermos seguro.</p>
+            <div class="drawer-campo">
+                <label>E-mail</label>
+                <input type="email" id="cadEmail" placeholder="seu@email.com" />
+                <span class="campo-erro" id="erroCadEmail"></span>
+            </div>
+            <div class="drawer-campo">
+                <label>Celular</label>
+                <input type="text" id="cadCelular" placeholder="(11) 99999-9999"
+                    maxlength="15" oninput="mascaraCelular(this)" />
+                <span class="campo-erro" id="erroCadCelular"></span>
+            </div>
+            <div class="cadastro-navegacao">
+                <button class="drawer-btn-secondary" onclick="voltarCadastro(2)">← Voltar</button>
+                <button class="drawer-btn-primary" onclick="avancarCadastro(2)">Continuar →</button>
+            </div>
+        </div>
+
+        <!-- Etapa 3: Senha -->
+        <div class="cadastro-passo" id="passo3" style="display:none">
+            <h2>Crie sua senha</h2>
+            <p>Mínimo de 8 caracteres.</p>
+            <div class="drawer-campo">
+                <label>Senha</label>
+                <div class="input-senha">
+                    <input type="password" id="cadSenha" placeholder="Crie uma senha forte" />
+                    <button type="button" class="toggle-senha" onclick="toggleSenha('cadSenha', this)">👁</button>
+                </div>
+                <div class="forca-senha" id="forcaSenha">
+                    <div class="forca-barra" id="forcaBarra"></div>
+                </div>
+                <span class="campo-erro" id="erroCadSenha"></span>
+            </div>
+            <div class="drawer-campo">
+                <label>Confirmar senha</label>
+                <div class="input-senha">
+                    <input type="password" id="cadSenhaConf" placeholder="Repita a senha" />
+                    <button type="button" class="toggle-senha" onclick="toggleSenha('cadSenhaConf', this)">👁</button>
+                </div>
+                <span class="campo-erro" id="erroCadSenhaConf"></span>
+            </div>
+            <div class="cadastro-navegacao">
+                <button class="drawer-btn-secondary" onclick="voltarCadastro(3)">← Voltar</button>
+                <button class="drawer-btn-primary" onclick="finalizarCadastro()">Criar conta grátis</button>
+            </div>
+        </div>
+
+        <!-- Sucesso -->
+        <div class="cadastro-passo" id="passoSucesso" style="display:none">
+            <div class="cadastro-sucesso">
+                <span class="sucesso-icone">✅</span>
+                <h2>Conta criada!</h2>
+                <p>Bem-vindo ao Senna Bank. Sua conta foi criada com sucesso.</p>
+                <button class="drawer-btn-primary" onclick="fecharPainel()">Começar agora</button>
+            </div>
+        </div>
+
+        <p class="drawer-divisor" id="divisorLogin">Já tem conta?</p>
+        <button class="drawer-btn-secondary" id="btnJaTenho" onclick="trocarDrawer('drawerEntrar')">Entrar na minha conta</button>
+    </section>
+    <header>
+        <div class="header">
+            <section class="logo">
+                <div class="bandeira">
+                    <div class="g">.</div>
+                    <div class="y">.</div>
+                    <div class="r">.</div>
+                </div>
+                <button class="menu-hamburguer" id="menuHamburguer" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h2><a href="../index.html"><strong>SENNA</strong> BANK</a></h2>
+            </section>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="imprensa.html">Imprensa</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                    <li><a href="termos.html">Termos</a></li>
+                    <li><a href="tarifas.html">Tarifas</a></li>
+                </ul>
+            </nav>
+            <section class="conta">
+                <div class="entrar">
+                    <a href="#" onclick="abrirPainel('drawerEntrar'); return false;">Entrar</a>
+                </div>
+                <div class="criar">
+                    <a href="#" onclick="abrirPainel('drawerConta'); return false;">Abrir Conta</a>
+                </div>
+            </section>
+        </div>
+        <div>
+            <hr class="fimHeader">
+        </div>
+    </header>
+    <body>
+        <main>
+            <div class="esqueci-container">
+
+                <div class="esqueci-logo">
+                    <a href="index.html">
+                        <strong>SENNA</strong> BANK
+                    </a>
+                </div>
+
+                <!-- Indicador de etapas -->
+                <div class="cadastro-etapas">
+                    <div class="etapa ativa" id="etapa-dot-1">1</div>
+                    <div class="etapa-linha"></div>
+                    <div class="etapa" id="etapa-dot-2">2</div>
+                    <div class="etapa-linha"></div>
+                    <div class="etapa" id="etapa-dot-3">3</div>
+                </div>
+
+                <!-- Etapa 1: CPF -->
+                <div class="esqueci-passo" id="passo1">
+                    <div class="esqueci-icone">🔑</div>
+                    <h1>Esqueci minha senha</h1>
+                    <p>Informe seu CPF cadastrado e enviaremos um código de verificação.</p>
+                    <div class="esqueci-campo">
+                        <label>CPF</label>
+                        <input type="text" id="esqCpf" placeholder="000.000.000-00"
+                               maxlength="14" oninput="mascaraCpf(this)" />
+                        <span class="campo-erro" id="erroEsqCpf"></span>
+                    </div>
+                    <button class="esqueci-btn-primary" onclick="avancarEsqueci(1)">
+                        Enviar código
+                    </button>
+                    <a href="javascript:history.back()" class="esqueci-link">← Voltar</a>
+                </div>
+
+                <!-- Etapa 2: Código -->
+                <div class="esqueci-passo oculto" id="passo2">
+                    <div class="esqueci-icone">📱</div>
+                    <h1>Código de verificação</h1>
+                    <p>Enviamos um código para o celular cadastrado. Digite abaixo.</p>
+                    <div class="codigo-inputs">
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 0)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 1)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 2)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 3)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 4)" />
+                        <input type="text" class="codigo-digito" maxlength="1" oninput="avancarDigito(this, 5)" />
+                    </div>
+                    <span class="campo-erro" id="erroEsqCodigo"></span>
+                    <p class="reenviar-codigo">Não recebeu? <a href="#" onclick="reenviarCodigo()">Reenviar código</a></p>
+                    <button class="esqueci-btn-primary" onclick="avancarEsqueci(2)">
+                        Verificar código
+                    </button>
+                    <a href="#" class="esqueci-link" onclick="voltarEsqueci(2)">← Voltar</a>
+                </div>
+
+                <!-- Etapa 3: Nova senha -->
+                <div class="esqueci-passo oculto" id="passo3">
+                    <div class="esqueci-icone">🔒</div>
+                    <h1>Nova senha</h1>
+                    <p>Crie uma senha forte com pelo menos 8 caracteres.</p>
+                    <div class="esqueci-campo">
+                        <label>Nova senha</label>
+                        <div class="input-senha">
+                            <input type="password" id="esqSenha" placeholder="Crie uma senha forte" />
+                            <button type="button" class="toggle-senha" onclick="toggleSenha('esqSenha', this)">👁</button>
+                        </div>
+                        <div class="forca-senha">
+                            <div class="forca-barra" id="forcaBarraEsq"></div>
+                        </div>
+                        <span class="campo-erro" id="erroEsqSenha"></span>
+                    </div>
+                    <div class="esqueci-campo">
+                        <label>Confirmar nova senha</label>
+                        <div class="input-senha">
+                            <input type="password" id="esqSenhaConf" placeholder="Repita a senha" />
+                            <button type="button" class="toggle-senha" onclick="toggleSenha('esqSenhaConf', this)">👁</button>
+                        </div>
+                        <span class="campo-erro" id="erroEsqSenhaConf"></span>
+                    </div>
+                    <button class="esqueci-btn-primary" onclick="finalizarEsqueci()">
+                        Redefinir senha
+                    </button>
+                    <a href="#" class="esqueci-link" onclick="voltarEsqueci(3)">← Voltar</a>
+                </div>
+
+                <!-- Sucesso -->
+                <div class="esqueci-passo oculto" id="passoSucesso">
+                    <div class="esqueci-icone">✅</div>
+                    <h1>Senha redefinida!</h1>
+                    <p>Sua senha foi alterada com sucesso. Agora você já pode entrar na sua conta.</p>
+                    <a href="index.html" class="esqueci-btn-primary" style="text-align:center; text-decoration:none;">
+                        Ir para o início
+                    </a>
+                </div>
+
+            </div>
+        </main>
+        <script src="../scripts/main.js"></script>
+        <script src="../scripts/esqueci-senha.js"></script>
+    </body>
+</html>
