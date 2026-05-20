@@ -1,10 +1,5 @@
-//
-// ================================
-// CONTA
-// ================================
-//
 export function inicializarConta(cleanupFunctions) {
-    console.log('Conta carregando');
+    console.log('Carregando');
 
     const horas = document.querySelector('.horas');
 

@@ -1,5 +1,11 @@
 //Código de Matheus Raiano
 import { inicializarConta } from './perfil/conta.js';
+import { inicializarCartoes } from './perfil/cartoes.js';
+import { inicializarExtrato } from './perfil/extrato.js';
+import { inicializarTransacoes } from './perfil/transacoes.js';
+import { inicializarInvestimentos } from './perfil/investimentos.js';
+import { inicializarEmprestimos } from './perfil/emprestimos.js';
+import { inicializarNotificacoes } from './perfil/notificacoes.js';
 //
 // ELEMENTOS PRINCIPAIS
 //
@@ -116,51 +122,3 @@ navItems.forEach(item => {
         item.classList.remove('ativo');
     }
 });
-//
-// ================================
-// CARTÕES
-// ================================
-//
-function inicializarCartoes() {
-    console.log('Cartões carregado');
-}
-//
-// ================================
-// EXTRATO
-// ================================
-//
-function inicializarExtrato() {
-    console.log('Extrato carregado');
-}
-//
-// ================================
-// TRANSAÇÕES
-// ================================
-//
-function inicializarTransacoes() {
-    console.log('Transações carregado');
-}
-//
-// ================================
-// INVESTIMENTOS
-// ================================
-//
-function inicializarInvestimentos() {
-    console.log('Investimentos carregado');
-}
-//
-// ================================
-// EMPRÉSTIMOS
-// ================================
-//
-function inicializarEmprestimos() {
-    console.log('Empréstimos carregado');
-}
-//
-// ================================
-// NOTIFICAÇÕES
-// ================================
-//
-function inicializarNotificacoes() {
-    console.log('Notificações carregado');
-}
