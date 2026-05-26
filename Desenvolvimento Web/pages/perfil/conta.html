@@ -1,24 +1,251 @@
 <!--Código de Matheus Raiano-->
 <section class="contaGeral">
+ 
+    <!--TOPO-->
     <div class="contaTopo">
         <h1>Visão Geral</h1>
         <p class="horas"></p>
     </div>
-    <div class="contaPrimeiraParte">
-        <div class="contaSaldo">
+ 
+    <!--SALDO PRINCIPAL-->
+    <div class="contaSaldoPrincipal">
+        <div class="contaSaldoEsquerda">
             <h5>Saldo Disponível</h5>
-            <h1>R$ 0.00</h1>
-        </div>
-        <div class="contaPrimeiraParteDois">
-            <div class="contaCorrente">
-                <h5>Conta Corrente</h5>
-                <h2>Ag 0001 - CC 199400-4</h2>
+            <div class="contaSaldoValorLinha">
+                <!--Aqui vem conta.saldo do backend Java-->
+                <h1 id="contaSaldoH1">R$ 0,00</h1>
+                <button class="contaBtnOcultar" onclick="window.ocultarSaldo()" id="contaBtnOcultarId" title="Ocultar saldo">👁</button>
             </div>
-            <div class="contaLimiteCredito">
-                <h5>Limite de Crédito</h5>
-                <h2>R$ 0.00</h2>
-                <p>R$ 0.00 Utilizado</p>
+            <!--Aqui vem conta.ds_status do backend Java-->
+            <span class="contaStatusAtivo" id="contaStatusSpan">● Carregando...</span>
+        </div>
+        <div class="contaSaldoDireita">
+            <div class="contaDadoItem">
+                <h5>Agência</h5>
+                <!--Aqui vem conta.nr_agencia do backend Java-->
+                <h3 id="contaAgencia">—</h3>
+            </div>
+            <div class="contaDadoItem">
+                <h5>Conta Corrente</h5>
+                <!--Aqui vem conta.nr_conta do backend Java-->
+                <h3 id="contaNumeroConta">—</h3>
+            </div>
+            <div class="contaDadoItem">
+                <h5>Tipo</h5>
+                <!--Aqui vem conta.tp_conta do backend Java-->
+                <h3 id="contaTipo">—</h3>
             </div>
         </div>
     </div>
+ 
+    <!--AÇÕES RÁPIDAS-->
+    <div class="contaAcoes">
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">⚡</span>
+            <p>Pix</p>
+        </button>
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">🔄</span>
+            <p>Transferir</p>
+        </button>
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">📄</span>
+            <p>Pagar</p>
+        </button>
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">💰</span>
+            <p>Depositar</p>
+        </button>
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">🏧</span>
+            <p>Sacar</p>
+        </button>
+        <button class="contaAcaoItem">
+            <span class="contaAcaoIcone">📱</span>
+            <p>Recarga</p>
+        </button>
+    </div>
+ 
+    <!--RESUMO: ENTRADAS / SAIDAS / INVESTIDO / LIMITE-->
+    <div class="contaResumo">
+        <div class="contaCaixaResumo contaEntradas">
+            <div class="contaCaixaResumoTopo">
+                <h5>Entradas</h5>
+                <span>📥</span>
+            </div>
+            <!--Aqui vem soma das transacoes onde fk_conta_destino = conta do usuario-->
+            <h2 id="contaTotalEntradas">R$ 0,00</h2>
+            <p id="contaQtdEntradas">0 transações este mês</p>
+        </div>
+        <div class="contaCaixaResumo contaSaidas">
+            <div class="contaCaixaResumoTopo">
+                <h5>Saídas</h5>
+                <span>📤</span>
+            </div>
+            <!--Aqui vem soma das transacoes onde fk_conta_origem = conta do usuario-->
+            <h2 id="contaTotalSaidas">R$ 0,00</h2>
+            <p id="contaQtdSaidas">0 transações este mês</p>
+        </div>
+        <div class="contaCaixaResumo contaInvestido">
+            <div class="contaCaixaResumoTopo">
+                <h5>Investido</h5>
+                <span>📈</span>
+            </div>
+            <!--Aqui vem soma de investimento.valor_atual do backend Java-->
+            <h2 id="contaTotalInvestido">R$ 0,00</h2>
+            <p id="contaRentabilidade">Rentabilidade —</p>
+        </div>
+        <div class="contaCaixaResumo contaLimiteDisp">
+            <div class="contaCaixaResumoTopo">
+                <h5>Limite Disponível</h5>
+                <span>💳</span>
+            </div>
+            <!--Aqui vem cartao_credito.limite_total - limite_usado do backend Java-->
+            <h2 id="contaLimiteDisponivel">R$ 0,00</h2>
+            <p id="contaLimiteTotal">De R$ 0,00 no total</p>
+        </div>
+    </div>
+ 
+    <!--GRID PRINCIPAL: TRANSAÇÕES + LATERAL-->
+    <div class="contaGridPrincipal">
+ 
+        <!--ÚLTIMAS TRANSAÇÕES-->
+        <div class="contaUltimasTransacoes">
+            <div class="contaTituloSecao">
+                <h4>🔄 Últimas Transações</h4>
+                <a class="contaLinkVer" onclick="">Ver todas →</a>
+            </div>
+            <!--Aqui vem lista de transacoes do backend Java-->
+            <!--Os itens serão inseridos pelo conta.js via contaRenderizarTransacoes()-->
+            <div class="contaListaTransacoes" id="contaListaTransacoesId">
+                <p class="contaVazio">Nenhuma transação encontrada.</p>
+            </div>
+        </div>
+ 
+        <!--COLUNA LATERAL-->
+        <div class="contaLateral">
+ 
+            <!--CARTÃO DE CRÉDITO-->
+            <div class="contaCartaoCard">
+                <div class="contaTituloSecao">
+                    <h4>💳 Cartão de Crédito</h4>
+                    <a class="contaLinkVer" onclick="">Gerenciar →</a>
+                </div>
+                <!--Aqui vem cartao_credito.nm_cartao do backend Java-->
+                <div class="contaCartaoMini" id="contaCartaoMiniId">
+                    <span>SENNA BANK</span>
+                    <span id="contaNomeCartao">—</span>
+                </div>
+                <div class="contaLimiteInfo">
+                    <div class="contaLimiteTextos">
+                        <!--Aqui vem cartao_credito.limite_usado e limite_total do backend Java-->
+                        <p>Utilizado: <strong id="contaLimiteUsado">R$ 0,00</strong></p>
+                        <p>Disponível: <strong class="contaValorEntrada" id="contaLimiteDispCartao">R$ 0,00</strong></p>
+                    </div>
+                    <div class="contaLimiteBarra">
+                        <!--Largura calculada pelo JS: (limite_usado / limite_total) * 100-->
+                        <div class="contaLimiteBarraUsada" id="contaLimiteBarraId" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+ 
+            <!--FATURA ATUAL-->
+            <div class="contaFaturaCard">
+                <div class="contaTituloSecao">
+                    <h4>📋 Fatura Atual</h4>
+                    <!--Aqui vem fatura.ds_status do backend Java-->
+                    <small class="contaBadge" id="contaFaturaStatusBadge">—</small>
+                </div>
+                <div class="contaFaturaValores">
+                    <div>
+                        <h5>Total da fatura</h5>
+                        <!--Aqui vem fatura.valor_total do backend Java-->
+                        <h2 class="contaValorFatura" id="contaFaturaTotal">R$ 0,00</h2>
+                    </div>
+                    <div>
+                        <h5>Vencimento</h5>
+                        <!--Aqui vem fatura.dt_vencimento do backend Java-->
+                        <h3 id="contaFaturaVencimento">—</h3>
+                    </div>
+                </div>
+                <button class="contaBtnPagarFatura">Pagar fatura</button>
+            </div>
+ 
+            <!--NOTIFICAÇÕES NÃO LIDAS-->
+            <div class="contaNotificacoesCard">
+                <div class="contaTituloSecao">
+                    <h4>🔔 Notificações</h4>
+                    <!--Aqui vem COUNT de notificacao WHERE ds_lida = 0 do backend Java-->
+                    <span class="contaBadgeNotif" id="contaQtdNotif">0 novas</span>
+                </div>
+                <!--Os itens serão inseridos pelo conta.js via contaRenderizarNotificacoes()-->
+                <div class="contaListaNotif" id="contaListaNotifId">
+                    <p class="contaVazio">Nenhuma notificação.</p>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+ 
+    <!--GRID INFERIOR: INVESTIMENTOS + EMPRÉSTIMO-->
+    <div class="contaGridInferior">
+ 
+        <!--INVESTIMENTOS ATIVOS-->
+        <div class="contaInvestimentosCard">
+            <div class="contaTituloSecao">
+                <h4>📈 Investimentos Ativos</h4>
+                <a class="contaLinkVer" onclick="">Ver todos →</a>
+            </div>
+            <!--Os itens serão inseridos pelo conta.js via contaRenderizarInvestimentos()-->
+            <div id="contaListaInvestimentosId">
+                <p class="contaVazio">Nenhum investimento ativo.</p>
+            </div>
+        </div>
+ 
+        <!--EMPRÉSTIMO ATIVO-->
+        <div class="contaEmprestimoCard">
+            <div class="contaTituloSecao">
+                <h4>💰 Empréstimo Ativo</h4>
+                <!--Aqui vem emprestimo.ds_status do backend Java-->
+                <small class="contaBadge" id="contaEmprestimoStatusBadge">—</small>
+            </div>
+            <div class="contaEmprestimoInfo">
+                <div class="contaEmprestimoItem">
+                    <h5>Tipo</h5>
+                    <!--Aqui vem emprestimo.tp_emprestimo do backend Java-->
+                    <h3 id="contaEmprestimoTipo">—</h3>
+                </div>
+                <div class="contaEmprestimoItem">
+                    <h5>Valor Aprovado</h5>
+                    <!--Aqui vem emprestimo.valor_aprovado do backend Java-->
+                    <h3 id="contaEmprestimoValor">—</h3>
+                </div>
+                <div class="contaEmprestimoItem">
+                    <h5>Taxa de Juros</h5>
+                    <!--Aqui vem emprestimo.taxa_juros do backend Java-->
+                    <h3 id="contaEmprestimoTaxa">—</h3>
+                </div>
+                <div class="contaEmprestimoItem">
+                    <h5>Próxima Parcela</h5>
+                    <!--Aqui vem parcela_emprestimo.valor_parcela WHERE ds_status = 'pendente' do backend Java-->
+                    <h3 class="contaValorSaida" id="contaEmprestimoProximaParcela">—</h3>
+                </div>
+            </div>
+            <div class="contaEmprestimoProgresso">
+                <div class="contaEmprestimoProgressoTexto">
+                    <p>Parcelas pagas</p>
+                    <!--Aqui vem COUNT parcelas WHERE ds_status = 'paga' / emprestimo.nr_parcelas do backend Java-->
+                    <p><strong id="contaEmprestimoParcelaTexto">— de —</strong></p>
+                </div>
+                <div class="contaEmprestimoBarra">
+                    <!--Largura calculada pelo JS: (parcelas_pagas / nr_parcelas) * 100-->
+                    <div class="contaEmprestimoBarraFill" id="contaEmprestimoBarraId" style="width: 0%"></div>
+                </div>
+                <!--Aqui vem parcela_emprestimo.dt_vencimento da próxima pendente do backend Java-->
+                <p class="contaEmprestimoVenc">Próximo vencimento: <strong id="contaEmprestimoVencimento">—</strong></p>
+            </div>
+        </div>
+ 
+    </div>
+ 
 </section>

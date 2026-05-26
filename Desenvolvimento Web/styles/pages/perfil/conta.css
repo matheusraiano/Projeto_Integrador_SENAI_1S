@@ -1,64 +1,651 @@
+/*Código de Matheus Raiano*/
 @import url(../perfil.css);
-/*Geral*/
+/**/
+/*GERAL*/
+/**/
 section.contaGeral {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    line-height: 0.7;
-    margin: 20px;
+    gap: 24px;
+    padding: 24px;
+    line-height: 1.4;
 }
-/*PrimeiraParte*/
-div.contaPrimeiraParte {
+/**/
+/*TOPO*/
+/**/
+div.contaTopo {
     display: flex;
-    background: #0f0f0f;
-    border-radius: 20px;
-    padding: 10px 100px 10px 50px;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
-div.contaPrimeiraParte h5 {
-    text-transform: uppercase;
+div.contaTopo h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+p.horas {
     color: var(--textosP);
+    font-size: 0.78rem;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+}
+/**/
+/*SALDO PRINCIPAL*/
+/**/
+div.contaSaldoPrincipal {
+    background-color: #0f0f0f;
+    border: 1px solid rgba(62, 209, 62, 0.3);
+    border-radius: 20px;
+    padding: 28px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-div.contaPrimeiraParteDois {
+div.contaSaldoEsquerda {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
-div.contaLimiteCredito h2 {
-    color: var(--verdeClaro);
-}
-
-div.contaLimiteCredito p {
+div.contaSaldoEsquerda h5 {
     color: var(--textosP);
-    font-size: 0.8em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
 }
-/*SegundaParte*/
-div.contaSegundaParte {
+
+div.contaSaldoValorLinha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+div.contaSaldoValorLinha h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+    transition: filter 0.3s ease;
+}
+
+div.contaSaldoValorLinha h1.oculto {
+    filter: blur(12px);
+    user-select: none;
+}
+
+button.contaBtnOcultar {
+    background: var(--verdeTransparente);
+    border: 1px solid rgba(62, 209, 62, 0.3);
+    color: var(--verdeClaro);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button.contaBtnOcultar:hover {
+    background: rgba(62, 209, 62, 0.2);
+}
+
+span.contaStatusAtivo {
+    color: var(--verdeClaro);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+div.contaSaldoDireita {
+    display: flex;
+    gap: 50px;
+}
+
+div.contaDadoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+div.contaDadoItem h5 {
+    color: var(--textosP);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+div.contaDadoItem h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    margin: 0;
+    color: white;
+}
+/**/
+/*AÇÕES RÁPIDAS*/
+/**/
+div.contaAcoes {
+    display: flex;
+    gap: 12px;
+}
+
+button.contaAcaoItem {
+    flex: 1;
+    background-color: #0f0f0f;
+    border: 1px solid var(--bordaCinza);
+    border-radius: 16px;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+button.contaAcaoItem:hover {
+    border-color: var(--verdeClaro);
+    background: var(--verdeTransparente);
+    transform: translateY(-4px);
+}
+
+span.contaAcaoIcone {
+    background-color: var(--verdeTransparente);
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+button.contaAcaoItem p {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--textosP);
+    margin: 0;
+}
+/**/
+/*RESUMO: ENTRADAS / SAIDAS / INVESTIDO / LIMITE*/
+/**/
+div.contaResumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+div.contaCaixaResumo {
+    background-color: #0f0f0f;
+    border: 1px solid var(--bordaCinza);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+div.contaCaixaResumo:hover {
+    border-color: var(--bordaCinza);
+    transform: translateY(-3px);
+}
+
+div.contaCaixaResumoTopo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.contaCaixaResumo h5 {
+    color: var(--textosP);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+div.contaCaixaResumo h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+}
+
+div.contaCaixaResumo p {
+    color: var(--textosP);
+    font-size: 0.72rem;
+    margin: 0;
+}
+
+div.contaEntradas h2 { color: var(--verdeClaro); }
+div.contaSaidas h2   { color: #e05252; }
+div.contaInvestido h2 { color: #ffc107; }
+div.contaLimiteDisp h2 { color: white; }
+/**/
+/*GRID PRINCIPAL*/
+/**/
+div.contaGridPrincipal {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
+/**/
+/*ÚLTIMAS TRANSAÇÕES*/
+/**/
+div.contaUltimasTransacoes {
+    background-color: #0f0f0f;
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div.contaTituloSecao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.contaTituloSecao h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+a.contaLinkVer {
+    font-size: 0.75rem;
+    color: var(--verdeClaro);
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+a.contaLinkVer:hover {
+    opacity: 0.7;
+}
+
+div.contaListaTransacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+div.contaTransacaoItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 8px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+    cursor: default;
+}
+
+div.contaTransacaoItem:hover {
+    background-color: #161616;
+}
+
+div.contaTransacaoIcone {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
-div.contaSegundaParte h5 {
-    text-transform: uppercase;
+div.contaTipoEntrada { background-color: var(--verdeTransparente); }
+div.contaTipoSaida   { background-color: var(--vermelhoTransparente); }
+
+div.contaTransacaoInfo {
+    flex: 1;
+}
+
+div.contaTransacaoInfo h5 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    color: white;
+}
+
+div.contaTransacaoInfo p {
+    font-size: 0.72rem;
     color: var(--textosP);
+    margin: 0;
 }
 
-div.contaCaixaSP {
-    width: 350px;
-    background: #0f0f0f;
-    border-radius: 20px;
-    padding: 10px 20px 10px 20px;
+div.contaTransacaoValor {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
 }
 
-div.contaEntradas h2 {
+div.contaTransacaoValor span {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+}
+
+span.contaValorEntrada { color: var(--verdeClaro); }
+span.contaValorSaida   { color: #e05252; }
+/*Badges de status*/
+small.contaBadge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 100px;
+}
+
+small.contaBadge.concluida {
+    background-color: var(--verdeTransparente);
     color: var(--verdeClaro);
 }
 
-div.contaSaidas h2 {
-    color: red;
+small.contaBadge.pendente {
+    background-color: var(--amareloTransparente);
+    color: #ffc107;
+}
+
+small.contaBadge.cancelada {
+    background-color: var(--vermelhoTransparente);
+    color: #e05252;
+}
+/**/
+/*COLUNA LATERAL*/
+/**/
+div.contaLateral {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div.contaCartaoCard,
+div.contaFaturaCard,
+div.contaNotificacoesCard {
+    background-color: #0f0f0f;
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+/*Cartão Mini*/
+div.contaCartaoMini {
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 65px;
+    background-size: cover;
+    background-position: center;
+}
+
+div.contaCartaoMini.interlagos {
+    background-image: url('../../../assets/midias/cartao_interlagos.png');
+}
+
+div.contaCartaoMini span {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+}
+/*Limite*/
+div.contaLimiteTextos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+}
+
+div.contaLimiteTextos p {
+    margin: 0;
+    color: var(--textosP);
+}
+
+div.contaLimiteBarra {
+    height: 5px;
+    background-color: #1e1e1e;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+div.contaLimiteBarraUsada {
+    height: 100%;
+    background-color: var(--verdeClaro);
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+/*Fatura*/
+div.contaFaturaValores {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+div.contaFaturaValores h5 {
+    color: var(--textosP);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 4px 0;
+}
+
+h2.contaValorFatura {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+    color: #ffc107;
+}
+
+div.contaFaturaValores h3 {
+    font-size: 0.9rem;
+    font-family: 'DM Mono', monospace;
+    margin: 0;
+    color: white;
+}
+
+button.contaBtnPagarFatura {
+    background-color: var(--verdeClaro);
+    border: none;
+    color: #000;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button.contaBtnPagarFatura:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+/*Notificações*/
+span.contaBadgeNotif {
+    background-color: var(--verdeTransparente);
+    color: var(--verdeClaro);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(62, 209, 62, 0.3);
+}
+
+div.contaListaNotif {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+div.contaNotifItem {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #141414;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+div.contaNotifItem:hover {
+    background-color: #1a1a1a;
+}
+
+div.contaNotifItem.naoLida {
+    border-left: 3px solid var(--verdeClaro);
+}
+
+div.contaNotifTexto h5 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+    color: white;
+}
+
+div.contaNotifTexto p {
+    font-size: 0.7rem;
+    color: var(--textosP);
+    margin: 0 0 3px 0;
+    line-height: 1.4;
+}
+
+div.contaNotifTexto small {
+    font-size: 0.65rem;
+    color: #555;
+}
+/**/
+/*GRID INFERIOR: INVESTIMENTOS + EMPRÉSTIMO*/
+/**/
+div.contaGridInferior {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+div.contaInvestimentosCard,
+div.contaEmprestimoCard {
+    background-color: #0f0f0f;
+    border: 1px solid var(--bordaCinza);
+    border-radius: 20px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+/*Investimentos*/
+div.contaInvestItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #141414;
+    border-radius: 12px;
+}
+
+div.contaInvestItemInfo h5 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin: 0 0 3px 0;
+    color: white;
+}
+
+div.contaInvestItemInfo p {
+    font-size: 0.7rem;
+    color: var(--textosP);
+    margin: 0;
+}
+
+div.contaInvestItemValor {
+    text-align: right;
+}
+
+div.contaInvestItemValor h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    margin: 0 0 2px 0;
+    color: white;
+}
+
+div.contaInvestItemValor small {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+/*Empréstimo*/
+div.contaEmprestimoInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+div.contaEmprestimoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+div.contaEmprestimoItem h5 {
+    color: var(--textosP);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+div.contaEmprestimoItem h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+    margin: 0;
+    color: white;
+}
+
+div.contaEmprestimoProgressoTexto {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--textosP);
+}
+
+div.contaEmprestimoProgressoTexto p {
+    margin: 0;
+}
+
+div.contaEmprestimoBarra {
+    height: 6px;
+    background-color: #1e1e1e;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 6px 0;
+}
+
+div.contaEmprestimoBarraFill {
+    height: 100%;
+    background: linear-gradient(to right, var(--verdeClaro), #ffc107);
+    border-radius: 3px;
+}
+
+p.contaEmprestimoVenc {
+    font-size: 0.75rem;
+    color: var(--textosP);
+    margin: 0;
 }
