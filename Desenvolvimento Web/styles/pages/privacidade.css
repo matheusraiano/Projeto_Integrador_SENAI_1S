@@ -1,5 +1,10 @@
 /*Código de Matheus Raiano*/
 @import url(../geral.css);
+
+html {
+    scroll-padding-top: 400px;
+}
+
 /**/
 /*MAIN*/
 /**/
@@ -29,6 +34,16 @@ div.indice h4 {
 
 div.indice ol {
     color: var(--textosP);
+}
+
+div.indice ol li a {
+    text-decoration: none;
+    color: var(--textosP);
+    transition: all 0.3s ease;
+}
+
+div.indice ol li a:hover {
+    color: var(--verdeClaro);
 }
 
 div.caixaProt {
